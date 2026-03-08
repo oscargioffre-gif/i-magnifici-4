@@ -31,28 +31,19 @@ html,body{
 
 .stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:var(--gold);animation:twinkle var(--d) ease-in-out var(--dl) infinite}
-
 .page{max-width:500px;margin:0 auto;padding:0 16px 80px;position:relative;z-index:1}
 
-/* Header */
 .header{text-align:center;padding:44px 0 28px}
 .crown{font-size:76px;display:inline-block;animation:floatCrown 3.2s ease-in-out infinite,crownGlow 2.5s ease-in-out infinite;margin-bottom:4px;line-height:1}
-.title{
-  font-family:var(--cinzel);font-size:clamp(1.8rem,8vw,2.5rem);font-weight:900;
-  background:linear-gradient(105deg,var(--gold-dim) 0%,var(--gold) 28%,var(--gold-light) 48%,var(--gold) 68%,var(--gold-dim) 100%);
-  background-size:220% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:shimmerText 4s linear infinite;letter-spacing:.06em;line-height:1
-}
+.title{font-family:var(--cinzel);font-size:clamp(1.8rem,8vw,2.5rem);font-weight:900;background:linear-gradient(105deg,var(--gold-dim) 0%,var(--gold) 28%,var(--gold-light) 48%,var(--gold) 68%,var(--gold-dim) 100%);background-size:220% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 4s linear infinite;letter-spacing:.06em;line-height:1}
 .subtitle{font-family:var(--corm);font-style:italic;color:#7a5e20;font-size:.9rem;margin-top:6px;letter-spacing:.18em}
 .divider{display:flex;align-items:center;gap:10px;margin-top:18px}
 .dl{flex:1;height:1px}.dl.l{background:linear-gradient(to right,transparent,var(--gold))}.dl.r{background:linear-gradient(to left,transparent,var(--gold))}
 .gem{color:var(--gold);font-size:14px}
 
-/* Card */
-.card{background:linear-gradient(135deg,rgba(255,215,0,.055),rgba(255,215,0,.015));border:1px solid rgba(255,215,0,.18);border-radius:20px;padding:22px 18px;margin-bottom:18px;box-shadow:0 0 50px rgba(255,215,0,.04)}
+.card{background:linear-gradient(135deg,rgba(255,215,0,.055),rgba(255,215,0,.015));border:1px solid rgba(255,215,0,.18);border-radius:20px;padding:22px 18px;margin-bottom:18px}
 .card-lbl{font-family:var(--cinzel);color:var(--gold);font-size:.64rem;letter-spacing:.3em;text-align:center;margin-bottom:16px}
 
-/* Balls */
 .balls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
 .ball{width:54px;height:54px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--play);font-weight:800;font-size:1.05rem;transition:all .5s cubic-bezier(.34,1.56,.64,1);user-select:none}
 .ball.dark{background:radial-gradient(circle at 35% 28%,#2e2e42,#18182a 65%,#0e0e18 90%);color:#66638a;border:2px solid rgba(80,78,120,.4);box-shadow:inset 0 1px 1px rgba(255,255,255,.04),0 3px 8px rgba(0,0,0,.6)}
@@ -62,16 +53,17 @@ html,body{
 .ball.xs{width:34px;height:34px;font-size:.72rem}
 .skel{width:54px;height:54px;border-radius:50%;flex-shrink:0;background:linear-gradient(90deg,#1a1a2a 25%,#252535 50%,#1a1a2a 75%);background-size:200% 100%;animation:skeleton 1.4s ease-in-out infinite;border:2px solid #1a1a28}
 
-/* Loader */
 .loader{text-align:center;padding:40px 0;animation:fadeUp .5s ease}
 .spinner{width:52px;height:52px;border-radius:50%;margin:0 auto 18px;border:3px solid rgba(255,215,0,.12);border-top-color:var(--gold);animation:spin 1s linear infinite}
 .loader-txt{font-family:var(--corm);font-style:italic;color:#7a5e20;font-size:.9rem;letter-spacing:.12em}
 
-/* Error */
+.info{background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.15);border-radius:14px;padding:16px 18px;margin-bottom:16px;text-align:center;animation:fadeUp .4s ease}
+.info p{color:#7a5e20;font-size:.85rem;font-family:var(--corm);font-style:italic;line-height:1.6}
+.info strong{color:#C9A84C;font-style:normal}
+
 .err{background:rgba(180,30,30,.08);border:1px solid rgba(180,30,30,.3);border-radius:16px;padding:22px;text-align:center;animation:fadeUp .4s ease;margin-bottom:16px}
 .err p{color:#cc5555;font-size:.95rem;margin-bottom:16px;font-family:var(--corm)}
 
-/* Draw cards */
 .draw{border-radius:18px;overflow:hidden;margin-bottom:14px;border:1px solid rgba(255,215,0,.1);background:rgba(10,10,16,.8);cursor:pointer;transition:border-color .3s;animation:fadeUp .5s ease}
 .draw.open{border-color:rgba(255,215,0,.3)}
 .draw.w2{background:linear-gradient(135deg,#0d0d1a 0%,#110e00 100%)}
@@ -97,9 +89,8 @@ html,body{
 .res-prize{font-family:var(--cinzel);font-weight:900;letter-spacing:.04em;font-size:1.3rem;margin-bottom:6px}
 .res-prize.s{font-size:.9rem;color:#444!important}
 .res-count{font-family:var(--corm);font-style:italic;font-size:.85rem;margin-bottom:10px}
-.jkp{text-align:center;color:#3a2e10;font-size:.68rem;font-style:italic;margin-top:12px;letter-spacing:.06em}
+.jkp{text-align:center;color:#3a2e10;font-size:.68rem;font-style:italic;margin-top:12px}
 
-/* Button */
 .btn{display:block;margin:28px auto 0;background:linear-gradient(135deg,#5C3A00,#FFD700,#5C3A00);border:none;border-radius:50px;padding:13px 36px;font-family:var(--cinzel);font-weight:700;font-size:.78rem;letter-spacing:.18em;color:#3D1A00;cursor:pointer;box-shadow:0 0 20px rgba(255,215,0,.25);transition:transform .15s;-webkit-tap-highlight-color:transparent}
 .btn:active{transform:scale(.97)}
 .btn:disabled{opacity:.5;cursor:default}
@@ -115,15 +106,12 @@ html,body{
 <div class="stars" id="stars"></div>
 
 <div class="page">
-
   <div class="header">
     <div class="crown">👑</div>
     <h1 class="title">I MAGNIFICI 4</h1>
     <p class="subtitle">SuperEnalotto · Controllo Automatico</p>
     <div class="divider">
-      <div class="dl l"></div>
-      <div class="gem">✦</div>
-      <div class="dl r"></div>
+      <div class="dl l"></div><div class="gem">✦</div><div class="dl r"></div>
     </div>
   </div>
 
@@ -134,14 +122,14 @@ html,body{
 
   <div id="content"></div>
 
-  <button class="btn" id="refreshBtn" onclick="loadDraws()">✦ AGGIORNA ESTRAZIONI ✦</button>
+  <button class="btn" id="refreshBtn" onclick="loadDraws()">✦ AGGIORNA ✦</button>
   <div class="upd" id="upd"></div>
   <p class="footer">Estrazioni · Martedì · Giovedì · Venerdì · Sabato · ore 20:00</p>
 </div>
 
 <script>
-const OUR = [3,7,12,22,25,26,46,79];
-const PRIZES = {
+const OUR=[3,7,12,22,25,26,46,79];
+const PRIZES={
   6:{label:"HAI FATTO SEI!",emoji:"🏆",color:"#FFD700",cls:"w6"},
   5:{label:"CINQUINA!",     emoji:"🌟",color:"#FFD700",cls:"w5"},
   4:{label:"QUATERNA!",     emoji:"💎",color:"#E8C77A",cls:"w4"},
@@ -150,109 +138,59 @@ const PRIZES = {
   1:{label:"NON HAI VINTO", emoji:"😔",color:"#555",   cls:""},
   0:{label:"NON HAI VINTO", emoji:"😔",color:"#555",   cls:""},
 };
+let draws=[],openIdx=0;
 
-let draws=[], openIdx=0;
-
-/* Stars */
+// Stars
 (()=>{
   const c=document.getElementById("stars");
   for(let i=0;i<32;i++){
-    const d=document.createElement("div");
-    d.className="star";
+    const d=document.createElement("div");d.className="star";
     const s=1+(i%3);
     d.style.cssText=`width:${s}px;height:${s}px;left:${(i*37+11)%100}%;top:${(i*53+7)%100}%;--d:${2.5+(i%3)}s;--dl:${(i*.4)%3}s`;
     c.appendChild(d);
   }
 })();
 
-/* Render our numbers */
 function renderOur(matched=[]){
   document.getElementById("ourNums").innerHTML=
     OUR.map(n=>`<div class="ball ${matched.includes(n)?'gold':'dark'}">${n}</div>`).join("");
 }
 renderOur();
 
-/* Ball HTML helper */
 function b(n,gold,sz=""){return`<div class="ball ${gold?'gold':'dimmed'} ${sz}">${n}</div>`}
 
-/* ── Fetch via Anthropic API with web_search ─────────────────────────────── */
-async function fetchDraws(){
-  const res = await fetch("https://api.anthropic.com/v1/messages",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      model:"claude-sonnet-4-20250514",
-      max_tokens:1000,
-      tools:[{type:"web_search_20250305",name:"web_search"}],
-      system:`Sei un assistente che recupera i risultati ufficiali del SuperEnalotto italiano.
-Devi restituire ESCLUSIVAMENTE un array JSON valido, senza nessun testo, senza markdown, senza backtick.
-
-Formato esatto richiesto:
-[{"date":"Sabato 8 Marzo 2026","concorso":"47/2026","numbers":[5,18,34,41,55,72],"jolly":63,"superstar":14,"jackpot":"88,2 Milioni"},...]
-
-Regole tassative:
-- "numbers": array di esattamente 6 interi tra 1 e 90 (i numeri principali)
-- "jolly": intero (numero jolly) oppure null
-- "superstar": intero (numero superstar) oppure null  
-- "jackpot": stringa oppure null
-- "date": stringa con giorno e data in italiano
-- "concorso": numero concorso oppure null
-- Restituisci le ultime 4 estrazioni disponibili, dalla più recente
-- SOLO l'array JSON, assolutamente nient'altro`,
-      messages:[{
-        role:"user",
-        content:"Cerca adesso i risultati delle ultime 4 estrazioni del SuperEnalotto su sisal.it o superenalotto.it e restituisci SOLO il JSON array."
-      }]
-    })
-  });
-
-  if(!res.ok) throw new Error("API error "+res.status);
-  const data = await res.json();
-
-  let text="";
-  for(const block of (data.content||[])){
-    if(block.type==="text") text+=block.text;
-  }
-
-  text=text.replace(/```json|```/gi,"").trim();
-  const match=text.match(/\[[\s\S]*\]/);
-  if(!match) throw new Error("JSON not found in: "+text.slice(0,200));
-
-  const parsed=JSON.parse(match[0]);
-  if(!Array.isArray(parsed)||parsed.length===0) throw new Error("Empty array");
-  return parsed;
-}
-
-/* ── Render draw cards ───────────────────────────────────────────────────── */
 function renderDraws(){
   if(!draws.length){
-    document.getElementById("content").innerHTML=
-      `<div class="err"><p>Nessuna estrazione trovata.</p></div>`;
+    document.getElementById("content").innerHTML=`
+      <div class="info">
+        <p>📅 I dati si aggiornano automaticamente ogni<br>
+        <strong>Martedì, Giovedì, Venerdì e Sabato</strong><br>
+        dopo le ore 20:30.<br><br>
+        Se è giorno di estrazione, riprova tra qualche ora!</p>
+      </div>`;
     return;
   }
-
   const open=draws[openIdx];
-  if(open) renderOur(open.numbers||[]);
+  if(open)renderOur(open.numbers||[]);
 
   document.getElementById("content").innerHTML=draws.map((d,i)=>{
     const matched=OUR.filter(n=>d.numbers?.includes(n));
-    const jollyM =d.jolly    &&OUR.includes(d.jolly);
-    const ssM    =d.superstar&&OUR.includes(d.superstar);
-    const cnt    =matched.length;
-    const prize  =PRIZES[Math.min(cnt,6)];
-    const isOpen =i===openIdx;
-    const winCls =cnt>=2?prize.cls:"";
+    const jollyM=d.jolly&&OUR.includes(d.jolly);
+    const ssM=d.superstar&&OUR.includes(d.superstar);
+    const cnt=matched.length;
+    const prize=PRIZES[Math.min(cnt,6)];
+    const isOpen=i===openIdx;
+    const winCls=cnt>=2?prize.cls:"";
 
     const badge=cnt>=2
       ?`<span class="badge">${prize.emoji} ${prize.label}</span>`
       :`<span class="badge none">${cnt===1?"1 numero":"nessuno"}</span>`;
 
     const numBalls=(d.numbers||[]).map(n=>b(n,OUR.includes(n),"sm")).join("");
-
     const matchBalls=[
       ...matched.map(n=>b(n,true,"xs")),
-      jollyM?b(d.jolly,   true,"xs"):"",
-      ssM   ?b(d.superstar,true,"xs"):"",
+      jollyM?b(d.jolly,true,"xs"):"",
+      ssM?b(d.superstar,true,"xs"):"",
     ].join("");
 
     const body=isOpen?`
@@ -271,57 +209,62 @@ function renderDraws(){
           ${cnt===0&&!jollyM&&!ssM?`<div class="res-count" style="color:#444">Nessuno dei nostri numeri è uscito</div>`:""}
         </div>
         ${d.jackpot?`<div class="jkp">Jackpot: ${d.jackpot}</div>`:""}
-      </div>`:""
+      </div>`:"";
 
     return`<div class="draw ${isOpen?"open "+winCls:""}" onclick="toggle(${i})">
       <div class="draw-hd">
         <div>
           <div class="draw-date">${d.date||"—"}</div>
-          ${d.concorso?`<div class="draw-sub">Concorso n. ${d.concorso}</div>`:""}
         </div>
         <div style="display:flex;align-items:center">${badge}<span class="arr">${isOpen?"▲":"▼"}</span></div>
-      </div>
-      ${body}
+      </div>${body}
     </div>`;
   }).join("");
 }
 
 function toggle(i){openIdx=i;renderDraws()}
 
-/* ── Load ─────────────────────────────────────────────────────────────────── */
 async function loadDraws(){
   const btn=document.getElementById("refreshBtn");
   btn.disabled=true;
   renderOur([]);
-
   document.getElementById("content").innerHTML=`
     <div class="loader">
       <div class="spinner"></div>
-      <div class="loader-txt">Recupero estrazioni in corso…</div>
+      <div class="loader-txt">Caricamento…</div>
       <div class="balls" style="margin-top:20px">
         ${[...Array(6)].map(()=>'<div class="skel"></div>').join("")}
       </div>
     </div>`;
 
   try{
-    draws=await fetchDraws();
+    // Legge data.json dallo stesso sito — zero CORS, sempre funzionante
+    const res=await fetch('data.json?t='+Date.now());
+    if(!res.ok)throw new Error("HTTP "+res.status);
+    const json=await res.json();
+    draws=json.draws||[];
     openIdx=0;
     renderDraws();
-    document.getElementById("upd").textContent=
-      "Aggiornato alle "+new Date().toLocaleTimeString("it-IT");
+
+    if(json.updated){
+      const d=new Date(json.updated);
+      document.getElementById("upd").textContent=
+        "Dati del "+d.toLocaleDateString("it-IT")+" ore "+d.toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"});
+    }
   }catch(e){
     console.error(e);
     document.getElementById("content").innerHTML=`
       <div class="err">
-        <p>Errore nel recupero estrazioni.<br><small style="color:#884444">${e.message}</small></p>
-        <button class="btn" onclick="loadDraws()" style="margin-top:0">RIPROVA ✦</button>
+        <p>Errore nel caricamento dati.<br>Controlla la connessione e riprova.</p>
+        <button class="btn" onclick="loadDraws()" style="margin:0 auto">RIPROVA ✦</button>
       </div>`;
+    renderOur([]);
   }finally{
     btn.disabled=false;
   }
 }
 
-/* PWA manifest */
+// PWA
 const mf={name:"I Magnifici 4",short_name:"I Magnifici 4",start_url:"./",display:"standalone",background_color:"#050508",theme_color:"#050508",icons:[{src:"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>",sizes:"192x192",type:"image/svg+xml"}]};
 const lnk=document.createElement("link");
 lnk.rel="manifest";lnk.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:"application/json"}));
