@@ -1,0 +1,184 @@
+name: Aggiorna Estrazioni SuperEnalotto
+
+on:
+  schedule:
+    - cron: '30 19 * * 2'
+    - cron: '30 19 * * 4'
+    - cron: '30 19 * * 5'
+    - cron: '30 19 * * 6'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch e parse SuperEnalotto
+        run: |
+          python3 << 'PYEOF'
+          import urllib.request, re, json
+          from datetime import datetime
+
+          MESI_IT = {
+              'gennaio':'Gennaio','febbraio':'Febbraio','marzo':'Marzo',
+              'aprile':'Aprile','maggio':'Maggio','giugno':'Giugno',
+              'luglio':'Luglio','agosto':'Agosto','settembre':'Settembre',
+              'ottobre':'Ottobre','novembre':'Novembre','dicembre':'Dicembre'
+          }
+          GIORNI_IT = {0:'Lunedì',1:'Martedì',2:'Mercoledì',3:'Giovedì',
+                       4:'Venerdì',5:'Sabato',6:'Domenica'}
+
+          headers = {
+              'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+                            'Chrome/122.0.0.0 Safari/537.36',
+              'Accept': 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
+              'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
+              'Accept-Encoding': 'gzip, deflate, br',
+              'Connection': 'keep-alive',
+          }
+
+          html = ''
+          for url in ['https://www.superenalotto.com/risultati',
+                      'https://www.superenalotto.net/risultati']:
+              try:
+                  req = urllib.request.Request(url, headers=headers)
+                  with urllib.request.urlopen(req, timeout=20) as r:
+                      raw = r.read()
+                      # handle gzip
+                      try:
+                          import gzip
+                          html = gzip.decompress(raw).decode('utf-8', errors='ignore')
+                      except:
+                          html = raw.decode('utf-8', errors='ignore')
+                  if len(html) > 2000:
+                      print(f'OK: {url}  ({len(html)} chars)')
+                      break
+              except Exception as e:
+                  print(f'FAIL {url}: {e}')
+
+          if not html:
+              print('ERRORE: nessun sito raggiungibile')
+              exit(1)
+
+          # ── Parser mirato sulla struttura di superenalotto.com ──────────────
+          # La pagina ha tabelle con: data | ... | Jackpot
+          # poi una riga con 8 numeri: 6 principali + jolly + superstar
+          # poi una riga con: "" "" "" "" "" "" "Jolly" "SuperStar"
+          # poi una riga con il jackpot es: "131.300.000 €"
+
+          results = []
+
+          # Trova tutti i blocchi data+numeri con regex sul raw HTML
+          # Pattern: <td>D mese YYYY</td> ... poi 8 <td>numero</td> in sequenza
+          date_block = re.compile(
+              r'<td[^>]*>\s*(\d{1,2})\s+'
+              r'(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto'
+              r'|settembre|ottobre|novembre|dicembre)\s+(\d{4})\s*</td>'
+              r'([\s\S]{0,2000}?)'   # contesto successivo
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>\s*'
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>\s*'
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>\s*'
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>\s*'
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>\s*'
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>\s*'
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>\s*'
+              r'<td[^>]*>\s*(\d{1,2})\s*</td>',
+              re.IGNORECASE
+          )
+
+          jackpot_rx = re.compile(r'([\d\.]+(?:\.000)?)\s*€')
+
+          for m in date_block.finditer(html):
+              if len(results) >= 4:
+                  break
+              day   = int(m.group(1))
+              month = m.group(2).lower()
+              year  = int(m.group(3))
+              nums  = [int(m.group(i)) for i in range(5,13)]  # 8 numeri
+
+              # Controlla validità
+              six = nums[:6]
+              jolly = nums[6]
+              ss    = nums[7]
+              if not all(1 <= n <= 90 for n in nums):
+                  continue
+              if len(set(six)) != 6:
+                  continue
+
+              # Cerca jackpot nel contesto dopo
+              ctx_start = m.end()
+              ctx = html[ctx_start:ctx_start+500]
+              jm = jackpot_rx.search(ctx)
+              jackpot = jm.group(0).strip() if jm else None
+
+              # Formato data italiano
+              mese_it = MESI_IT.get(month, month.capitalize())
+              date_str = f"{day} {mese_it} {year}"
+
+              # Evita duplicati
+              if any(r['numbers'] == six for r in results):
+                  continue
+
+              results.append({
+                  'date': date_str,
+                  'numbers': six,
+                  'jolly': jolly,
+                  'superstar': ss,
+                  'jackpot': jackpot
+              })
+              print(f"  {date_str}: {six}  J:{jolly}  SS:{ss}  JP:{jackpot}")
+
+          if not results:
+              print('Parser non ha trovato risultati — controllare HTML')
+              # Prova fallback: estrai numeri dal testo pulito
+              clean = re.sub(r'<[^>]+>', ' ', html)
+              clean = re.sub(r'&[a-z#0-9]+;', ' ', clean)
+              # cerca sequenze di 8 numeri 1-90 vicini nel testo
+              num_positions = [(int(m.group()), m.start())
+                               for m in re.finditer(r'\b([1-9]|[1-8][0-9]|90)\b', clean)]
+              date_rx2 = re.compile(
+                  r'(\d{1,2})\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|'
+                  r'luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})',
+                  re.IGNORECASE)
+              dates2 = [(m.group(0), m.start()) for m in date_rx2.finditer(clean)]
+
+              i = 0
+              while i < len(num_positions) and len(results) < 4:
+                  window = [num_positions[i]]
+                  j = i+1
+                  while j < len(num_positions) and num_positions[j][1]-num_positions[i][1] < 400:
+                      window.append(num_positions[j]); j+=1
+                  ns = [x[0] for x in window]
+                  six = list(dict.fromkeys([n for n in ns if 1<=n<=90]))[:6]
+                  if len(six)==6:
+                      jolly = next((n for n in ns[6:] if n not in six), None)
+                      ss = next((n for n in ns[7:] if n not in six and n!=jolly), None)
+                      pos = num_positions[i][1]
+                      near = min(dates2, key=lambda d: abs(d[1]-pos), default=(f'Estrazione {len(results)+1}',0))
+                      date_label = near[0].strip().capitalize() if dates2 else f'Estrazione {len(results)+1}'
+                      if not any(r['numbers']==six for r in results):
+                          results.append({'date':date_label,'numbers':six,'jolly':jolly,'superstar':ss,'jackpot':None})
+                  i = j
+
+          out = {
+              'updated': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+              'draws': results
+          }
+          with open('data.json','w',encoding='utf-8') as f:
+              json.dump(out, f, ensure_ascii=False, indent=2)
+
+          print(f'\nSalvate {len(results)} estrazioni in data.json')
+          PYEOF
+
+      - name: Commit data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "🎰 Estrazioni aggiornate $(date +'%d/%m/%Y %H:%M')"
+          git push
