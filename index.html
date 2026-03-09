@@ -46,8 +46,11 @@ html,body{
 
 .balls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
 .ball{width:54px;height:54px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--play);font-weight:800;font-size:1.05rem;transition:all .5s cubic-bezier(.34,1.56,.64,1);user-select:none}
-.ball.dark{background:radial-gradient(circle at 35% 28%,#2e2e42,#18182a 65%,#0e0e18 90%);color:#66638a;border:2px solid rgba(80,78,120,.4);box-shadow:inset 0 1px 1px rgba(255,255,255,.04),0 3px 8px rgba(0,0,0,.6)}
-.ball.dimmed{background:radial-gradient(circle at 35% 28%,#1a1a28,#0e0e18);color:#1e1e30;border:2px solid #141425}
+/* Palline nostri numeri (in cima, non estratti) */
+.ball.dark{background:radial-gradient(circle at 35% 28%,#2e2e42,#18182a 65%,#0e0e18 90%);color:#9896c0;border:2px solid rgba(120,118,180,.5);box-shadow:inset 0 1px 1px rgba(255,255,255,.06),0 3px 8px rgba(0,0,0,.6)}
+/* Palline numeri estratti NON nostri — bianco su grigio scuro, chiari e leggibili */
+.ball.dimmed{background:radial-gradient(circle at 35% 28%,#3a3a3a,#222222 65%,#141414 90%);color:#e8e8e8;border:2px solid rgba(180,180,180,.25);box-shadow:inset 0 1px 1px rgba(255,255,255,.08),0 2px 6px rgba(0,0,0,.5)}
+/* Palline nostri numeri estratti — oro brillante */
 .ball.gold{background:radial-gradient(circle at 35% 28%,#FFFCE0,#FFD700 42%,#9B6A00 85%);color:#3D1A00;border:2px solid rgba(255,220,50,.8);box-shadow:0 0 18px rgba(255,215,0,.7),0 0 36px rgba(255,180,0,.35),inset 0 1px 2px rgba(255,255,255,.5);animation:ballPulse 1.6s ease-in-out infinite}
 .ball.sm{width:42px;height:42px;font-size:.82rem}
 .ball.xs{width:34px;height:34px;font-size:.72rem}
