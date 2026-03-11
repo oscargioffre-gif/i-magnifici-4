@@ -13,15 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Installa dipendenze
-        run: pip install requests beautifulsoup4 lxml
-
-      - name: Scarica estrazioni
-        run: |
-          python3 << 'PYEOF'
-          import requests, re, json, sys
+      - uses: actions/checkout@v4
+      - run: pip install requests beautifulsoup4 lxml
+      - run: python3 fetch.py
+      - run: git config user.name "github-actions[bot]"
+      - run: git config user.email "github-actions[bot]@users.noreply.github.com"
+      - run: git add data.json
+      - run: git diff --staged --quiet || git commit -m "Estrazioni aggiornate"
+      - run: git push
