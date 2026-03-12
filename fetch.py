@@ -39,7 +39,6 @@ if not html:
 
 soup = BeautifulSoup(html, 'html.parser')
 
-# Regex per la data nel formato "7 March 2026"
 date_rx = re.compile(
     r'(\d{1,2})\s+'
     r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+'
@@ -47,14 +46,10 @@ date_rx = re.compile(
     re.IGNORECASE
 )
 
-# Regex per il jackpot
 jp_rx = re.compile(r'([\d.]+)\s*€')
 
 results = []
 
-# Ogni estrazione è in un <table>
-# La struttura ha: riga di date, riga con 8 celle numeriche
-#   (6 estratti + Jolly + SuperStar), riga con etichette "Jolly" / "SuperStar"
 for table in soup.find_all('table'):
     text = table.get_text(separator=' ', strip=True)
     dm = date_rx.search(text)
@@ -67,22 +62,16 @@ for table in soup.find_all('table'):
     m_it = MESI_EN_IT.get(m_en, m_en)
     m_n = MESI_IT_N.get(m_it, 1)
 
-    # Trova TUTTE le celle <td> nella tabella
     tds = table.find_all('td')
 
-    # Estrai solo le celle che contengono esattamente un numero 1-90
-    # e che NON contengono testo aggiuntivo come "Jolly", "SuperStar", date, "€"
     raw_nums = []
     for td in tds:
         cell_text = td.get_text(strip=True)
-        # Cella con un solo numero puro (1-90)
         if re.fullmatch(r'\d{1,2}', cell_text):
             val = int(cell_text)
             if 1 <= val <= 90:
                 raw_nums.append(val)
 
-    # La pagina ha esattamente 8 numeri per estrazione:
-    # 6 estratti + 1 Jolly + 1 SuperStar
     if len(raw_nums) < 8:
         print(f'  SKIP {d} {m_it} {y}: trovati solo {len(raw_nums)} numeri: {raw_nums}')
         continue
@@ -91,12 +80,10 @@ for table in soup.find_all('table'):
     jolly = raw_nums[6]
     superstar = raw_nums[7]
 
-    # Validazione: i 6 numeri estratti devono essere tutti diversi
     if len(set(six)) != 6:
         print(f'  SKIP {d} {m_it} {y}: numeri duplicati nella sestina {six}')
         continue
 
-    # Validazione: Jolly non deve essere tra i 6 estratti
     if jolly in six:
         print(f'  WARN {d} {m_it} {y}: Jolly {jolly} presente nella sestina {six}')
 
@@ -106,11 +93,9 @@ for table in soup.find_all('table'):
     except ValueError:
         date_str = f'{d} {m_it} {y}'
 
-    # Cerca jackpot
     jp_match = jp_rx.search(text)
     jp = jp_match.group(0).strip() if jp_match else None
 
-    # Evita duplicati
     if not any(r['numbers'] == six for r in results):
         results.append({
             'date': date_str,
