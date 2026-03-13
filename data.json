@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-13T04:14:04Z",
+  "updated": "2026-03-13T04:18:38Z",
   "draws": [
     {
       "date": "Giovedì 12 Marzo 2026",
@@ -12,8 +12,7 @@
         64
       ],
       "jolly": 43,
-      "superstar": 54,
-      "jackpot": "132.900.000 €"
+      "superstar": 54
     },
     {
       "date": "Martedì 10 Marzo 2026",
@@ -26,8 +25,7 @@
         83
       ],
       "jolly": 4,
-      "superstar": 42,
-      "jackpot": "132.100.000 €"
+      "superstar": 42
     },
     {
       "date": "Sabato 7 Marzo 2026",
@@ -40,8 +38,7 @@
         69
       ],
       "jolly": 5,
-      "superstar": 49,
-      "jackpot": "131.300.000 €"
+      "superstar": 49
     },
     {
       "date": "Venerdì 6 Marzo 2026",
@@ -54,8 +51,7 @@
         88
       ],
       "jolly": 20,
-      "superstar": 2,
-      "jackpot": "130.300.000 €"
+      "superstar": 2
     },
     {
       "date": "Giovedì 5 Marzo 2026",
@@ -68,8 +64,7 @@
         78
       ],
       "jolly": 22,
-      "superstar": 35,
-      "jackpot": "129.600.000 €"
+      "superstar": 35
     },
     {
       "date": "Martedì 3 Marzo 2026",
@@ -82,8 +77,7 @@
         68
       ],
       "jolly": 26,
-      "superstar": 83,
-      "jackpot": "128.700.000 €"
+      "superstar": 83
     },
     {
       "date": "Sabato 28 Febbraio 2026",
@@ -96,8 +90,7 @@
         80
       ],
       "jolly": 15,
-      "superstar": 27,
-      "jackpot": "127.800.000 €"
+      "superstar": 27
     },
     {
       "date": "Venerdì 27 Febbraio 2026",
@@ -110,8 +103,7 @@
         79
       ],
       "jolly": 80,
-      "superstar": 36,
-      "jackpot": "126.900.000 €"
+      "superstar": 36
     },
     {
       "date": "Giovedì 26 Febbraio 2026",
@@ -124,8 +116,7 @@
         72
       ],
       "jolly": 69,
-      "superstar": 47,
-      "jackpot": "126.200.000 €"
+      "superstar": 47
     },
     {
       "date": "Martedì 24 Febbraio 2026",
@@ -138,8 +129,7 @@
         87
       ],
       "jolly": 82,
-      "superstar": 29,
-      "jackpot": "125.300.000 €"
+      "superstar": 29
     }
   ]
 }
