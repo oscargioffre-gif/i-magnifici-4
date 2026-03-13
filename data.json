@@ -1,6 +1,20 @@
 {
-  "updated": "2026-03-12T20:00:10Z",
+  "updated": "2026-03-13T04:14:04Z",
   "draws": [
+    {
+      "date": "Giovedì 12 Marzo 2026",
+      "numbers": [
+        8,
+        24,
+        25,
+        62,
+        63,
+        64
+      ],
+      "jolly": 43,
+      "superstar": 54,
+      "jackpot": "132.900.000 €"
+    },
     {
       "date": "Martedì 10 Marzo 2026",
       "numbers": [
@@ -126,20 +140,6 @@
       "jolly": 82,
       "superstar": 29,
       "jackpot": "125.300.000 €"
-    },
-    {
-      "date": "Sabato 21 Febbraio 2026",
-      "numbers": [
-        49,
-        58,
-        60,
-        66,
-        68,
-        81
-      ],
-      "jolly": 75,
-      "superstar": 58,
-      "jackpot": "124.400.000 €"
     }
   ]
 }
