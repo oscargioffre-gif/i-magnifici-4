@@ -2,12 +2,7 @@ import requests, re, json, sys
 from datetime import datetime, date as dt_date
 from bs4 import BeautifulSoup
 
-MESI_EN_IT = {
-    'January':'Gennaio','February':'Febbraio','March':'Marzo','April':'Aprile',
-    'May':'Maggio','June':'Giugno','July':'Luglio','August':'Agosto',
-    'September':'Settembre','October':'Ottobre','November':'Novembre','December':'Dicembre'
-}
-MESI_IT_N = {
+MESI_IT = {
     'Gennaio':1,'Febbraio':2,'Marzo':3,'Aprile':4,'Maggio':5,'Giugno':6,
     'Luglio':7,'Agosto':8,'Settembre':9,'Ottobre':10,'Novembre':11,'Dicembre':12
 }
@@ -16,10 +11,10 @@ GIORNI = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Dome
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept-Language': 'it-IT,it;q=0.9',
 }
 
-URL = 'https://www.superenalotto.com/en/results'
+URL = 'https://www.superenalotto.it/archivio-estrazioni'
 
 def get_html(url):
     try:
@@ -39,53 +34,36 @@ if not html:
 
 soup = BeautifulSoup(html, 'html.parser')
 
-date_rx = re.compile(
-    r'(\d{1,2})\s+'
-    r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+'
-    r'(\d{4})',
-    re.IGNORECASE
-)
-
-jp_rx = re.compile(r'([\d.]+)\s*€')
+date_rx = re.compile(r'(\d{1,2})\s+(Gennaio|Febbraio|Marzo|Aprile|Maggio|Giugno|Luglio|Agosto|Settembre|Ottobre|Novembre|Dicembre)\s+(\d{4})')
 
 results = []
 
-for table in soup.find_all('table'):
-    text = table.get_text(separator=' ', strip=True)
-    dm = date_rx.search(text)
+for tr in soup.find_all('tr'):
+    tds = tr.find_all('td')
+    if len(tds) < 4:
+        continue
+
+    cell_concorso = tds[0].get_text(separator=' ', strip=True)
+    dm = date_rx.search(cell_concorso)
     if not dm:
         continue
 
     d = int(dm.group(1))
-    m_en = dm.group(2).capitalize()
+    m_it = dm.group(2)
     y = int(dm.group(3))
-    m_it = MESI_EN_IT.get(m_en, m_en)
-    m_n = MESI_IT_N.get(m_it, 1)
+    m_n = MESI_IT[m_it]
 
-    tds = table.find_all('td')
-
-    raw_nums = []
-    for td in tds:
-        cell_text = td.get_text(strip=True)
-        if re.fullmatch(r'\d{1,2}', cell_text):
-            val = int(cell_text)
-            if 1 <= val <= 90:
-                raw_nums.append(val)
-
-    if len(raw_nums) < 8:
-        print(f'  SKIP {d} {m_it} {y}: trovati solo {len(raw_nums)} numeri: {raw_nums}')
+    cell_nums = tds[1].get_text(separator=' ', strip=True)
+    nums = [int(x) for x in re.findall(r'\d+', cell_nums)]
+    if len(nums) != 6:
+        print(f'  SKIP {d} {m_it} {y}: numeri={nums}')
         continue
 
-    six = raw_nums[0:6]
-    jolly = raw_nums[6]
-    superstar = raw_nums[7]
+    jolly_text = tds[2].get_text(strip=True)
+    jolly = int(re.search(r'\d+', jolly_text).group())
 
-    if len(set(six)) != 6:
-        print(f'  SKIP {d} {m_it} {y}: numeri duplicati nella sestina {six}')
-        continue
-
-    if jolly in six:
-        print(f'  WARN {d} {m_it} {y}: Jolly {jolly} presente nella sestina {six}')
+    ss_text = tds[3].get_text(strip=True)
+    ss = int(re.search(r'\d+', ss_text).group())
 
     try:
         wd = dt_date(y, m_n, d).weekday()
@@ -93,23 +71,22 @@ for table in soup.find_all('table'):
     except ValueError:
         date_str = f'{d} {m_it} {y}'
 
-    jp_match = jp_rx.search(text)
-    jp = jp_match.group(0).strip() if jp_match else None
-
-    if not any(r['numbers'] == six for r in results):
+    if not any(r['numbers'] == nums for r in results):
         results.append({
             'date': date_str,
-            'numbers': six,
+            'numbers': nums,
             'jolly': jolly,
-            'superstar': superstar,
-            'jackpot': jp,
+            'superstar': ss,
         })
-        print(f'  OK {date_str}: {six}  J:{jolly}  SS:{superstar}  JP:{jp}')
+        print(f'  OK {date_str}: {nums}  J:{jolly}  SS:{ss}')
+
+    if len(results) >= 10:
+        break
 
 print(f'\nTrovate {len(results)} estrazioni')
 
 if not results:
-    print('Nessun risultato trovato - mantengo data.json esistente')
+    print('Nessun risultato - mantengo data.json')
     sys.exit(0)
 
 with open('data.json', 'w', encoding='utf-8') as f:
