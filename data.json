@@ -1,6 +1,19 @@
 {
-  "updated": "2026-03-26T20:51:09Z",
+  "updated": "2026-03-27T20:55:47Z",
   "draws": [
+    {
+      "date": "Venerdì 27 Marzo 2026",
+      "numbers": [
+        6,
+        22,
+        27,
+        43,
+        58,
+        64
+      ],
+      "jolly": 10,
+      "superstar": 74
+    },
     {
       "date": "Giovedì 26 Marzo 2026",
       "numbers": [
@@ -117,19 +130,6 @@
       ],
       "jolly": 43,
       "superstar": 54
-    },
-    {
-      "date": "Martedì 10 Marzo 2026",
-      "numbers": [
-        8,
-        34,
-        42,
-        47,
-        55,
-        83
-      ],
-      "jolly": 4,
-      "superstar": 42
     }
   ]
 }
