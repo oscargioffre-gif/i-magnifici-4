@@ -1,6 +1,19 @@
 {
-  "updated": "2026-05-07T21:14:18Z",
+  "updated": "2026-05-08T21:15:23Z",
   "draws": [
+    {
+      "date": "Venerdì 8 Maggio 2026",
+      "numbers": [
+        8,
+        16,
+        41,
+        47,
+        51,
+        90
+      ],
+      "jolly": 82,
+      "superstar": 69
+    },
     {
       "date": "Giovedì 7 Maggio 2026",
       "numbers": [
@@ -117,19 +130,6 @@
       ],
       "jolly": 72,
       "superstar": 57
-    },
-    {
-      "date": "Martedì 21 Aprile 2026",
-      "numbers": [
-        18,
-        19,
-        40,
-        43,
-        56,
-        77
-      ],
-      "jolly": 6,
-      "superstar": 65
     }
   ]
 }
