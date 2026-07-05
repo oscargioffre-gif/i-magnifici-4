@@ -118,6 +118,49 @@ body{background:var(--bg);color:#1a1400;font-family:'Cormorant Garamond',serif;f
 .bar-labels{display:flex;gap:4px;margin-top:6px}
 .bar-lbl{flex:1;text-align:center;font-size:15px;color:#3a2a00;line-height:1.3}
 .bar-lbl b{font-size:18px;font-family:'Cinzel',serif;color:#1a1400;display:block}
+
+/* ── JACKPOT CARD ──────────────────────────────────────────────────────── */
+.jackpot-card{background:linear-gradient(135deg,#1a1400 0%,#2a2000 60%,#3a2a00 100%);border:2px solid #FFD700;border-radius:18px;padding:22px 18px;margin-bottom:16px;box-shadow:0 4px 20px rgba(184,134,11,.25);position:relative;overflow:hidden}
+.jackpot-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,215,0,.08),transparent 70%);pointer-events:none}
+.jackpot-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.jackpot-title{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.3em;color:#b89a50;font-weight:700}
+.jackpot-refresh{background:none;border:1px solid #4a3a10;border-radius:20px;color:#8a7a40;font-size:11px;padding:4px 12px;cursor:pointer;font-family:'Cinzel',serif;letter-spacing:.1em;transition:.2s}
+.jackpot-refresh:hover{border-color:#FFD700;color:#FFD700}
+.jackpot-refresh.spinning{animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.jackpot-main{text-align:center;margin-bottom:6px}
+.jackpot-value{font-family:'Cinzel',serif;font-size:clamp(32px,9vw,52px);font-weight:900;background:linear-gradient(135deg,#b8860b,#FFD700,#fff8dc,#FFD700,#b8860b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:300%;animation:shimmer 3s linear infinite;line-height:1.1}
+.jackpot-label{font-size:12px;color:#8a7a50;letter-spacing:.2em;margin-top:2px}
+.jackpot-upd{text-align:center;font-size:11px;color:#6a5a30;margin-bottom:16px;letter-spacing:.05em}
+.jackpot-upd span{color:#FFD700}
+.scenario-title{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.2em;color:#b89a50;text-align:center;margin-bottom:10px;padding-top:14px;border-top:1px solid #3a3000}
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.scenario-item{background:rgba(0,0,0,.3);border:1px solid #3a3000;border-radius:12px;padding:12px;text-align:center}
+.scenario-item.jackpot-winner{border-color:#FFD700;background:rgba(255,215,0,.08)}
+.scenario-cat{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.15em;color:#8a7a50;margin-bottom:4px}
+.scenario-prize{font-family:'Cinzel',serif;font-size:clamp(15px,4vw,20px);font-weight:700;color:#FFD700}
+.scenario-detail{font-size:10px;color:#6a5a30;margin-top:2px}
+/* ── BILANCIO MAGNIFICO ─────────────────────────────────────────────────── */
+.bilancio-card{background:var(--card);border:1px solid #d4c89a;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bilancio-title{font-family:'Cinzel',serif;font-size:16px;letter-spacing:.2em;color:var(--gold);text-align:center;margin-bottom:18px;font-weight:700}
+.bilancio-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.bilancio-label{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;color:#6a5a3a}
+.bilancio-val{font-family:'Cinzel',serif;font-size:20px;font-weight:700}
+.bilancio-val.speso{color:#8a1a1a}
+.bilancio-val.vinto{color:#1a7a1a}
+.bilancio-bar-wrap{background:#e8e0d0;border-radius:20px;height:24px;overflow:hidden;margin:14px 0;position:relative;border:1px solid #c4b890}
+.bilancio-bar-fill{height:100%;border-radius:20px;transition:width 1.2s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:10px}
+.bilancio-bar-fill.pos{background:linear-gradient(90deg,#2a8a2a,#4aff6a)}
+.bilancio-bar-fill.neg{background:linear-gradient(90deg,#8a1a1a,#ff4a4a)}
+.bilancio-bar-pct{font-family:'Cinzel',serif;font-size:11px;font-weight:700;color:#fff}
+.bilancio-netto{text-align:center;margin-top:14px;padding-top:14px;border-top:1px solid #d4c89a}
+.bilancio-netto-label{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.2em;color:#6a5a3a;margin-bottom:4px}
+.bilancio-netto-val{font-family:'Cinzel',serif;font-size:36px;font-weight:900}
+.bilancio-netto-val.pos{color:#1a7a1a}
+.bilancio-netto-val.neg{color:#8a1a1a}
+.bilancio-roi{font-size:13px;color:#6a5a3a;margin-top:4px}
+.bilancio-roi span{font-weight:700}
+
 </style>
 </head>
 <body>
@@ -131,6 +174,24 @@ body{background:var(--bg);color:#1a1400;font-family:'Cormorant Garamond',serif;f
 
 <!-- TAB ESTRAZIONI -->
 <div class="section active" id="sec-draw">
+  <div class="jackpot-card" id="jackpotCard">
+    <div class="jackpot-header">
+      <div class="jackpot-title">🏆 JACKPOT SUPERENALOTTO</div>
+      <button class="jackpot-refresh" id="jackpotRefreshBtn" onclick="triggerJackpotRefresh()">↻ AGGIORNA</button>
+    </div>
+    <div class="jackpot-main">
+      <div class="jackpot-value" id="jackpotValue">---</div>
+      <div class="jackpot-label">MONTEPREMI ATTUALE</div>
+    </div>
+    <div class="jackpot-upd" id="jackpotUpd">aggiornamento in corso...</div>
+    <div class="scenario-title">✦ SE VINCESSIMO COL NOSTRO SISTEMA ✦</div>
+    <div class="scenario-grid" id="scenarioGrid">
+      <div class="scenario-item"><div class="scenario-cat">AMBO</div><div class="scenario-prize">---</div></div>
+      <div class="scenario-item"><div class="scenario-cat">TERNO</div><div class="scenario-prize">---</div></div>
+      <div class="scenario-item"><div class="scenario-cat">QUATERNA</div><div class="scenario-prize">---</div></div>
+      <div class="scenario-item"><div class="scenario-cat">CINQUINA</div><div class="scenario-prize">---</div></div>
+    </div>
+  </div>
   <div class="card">
     <div class="card-title">✦ I NOSTRI NUMERI FORTUNATI ✦</div>
     <div class="our-balls" id="ourBalls"></div>
@@ -274,12 +335,176 @@ async function loadData() {
   renderAll();
 }
 
+
+// ═══════════════════════════════════════════════════════════════════════════
+// JACKPOT REAL-TIME
+// ═══════════════════════════════════════════════════════════════════════════
+let currentJackpot = 50000000; // fallback €50M
+let jackpotLastUpdate = null;
+let jackpotFetchTimer = null;
+
+// Combinatoria: C(n, r)
+function nCr(n, r) {
+  if (r < 0 || r > n) return 0;
+  if (r === 0 || r === n) return 1;
+  r = Math.min(r, n - r);
+  let result = 1;
+  for (let i = 0; i < r; i++) {
+    result = result * (n - i) / (i + 1);
+  }
+  return Math.round(result);
+}
+
+// Calcola quanto vincerebbe il sistema ridotto (15/28) se N nostri numeri escono
+// n_match = 2..6 (quante delle nostre 8 uscite hanno corrisposto)
+// Ritorna {combinations, prize}
+function calcSistemaScenario(n_match) {
+  const nostriN = OUR.length; // 8
+  const schedinaN = 6; // numeri per schedina
+  const sistemaCompleto = nCr(nostriN, schedinaN); // C(8,6)=28
+  const sistemaRidotto = 15; // le nostre schedine
+
+  // Quante combinazioni del sistema completo contengono esattamente gli n_match numeri usciti?
+  // Fissiamo n_match numeri "vincenti" dal nostro set → le restanti combinazioni
+  // devono scegliere (schedinaN - n_match) numeri dai rimanenti (nostriN - n_match)
+  const remaining = nostriN - n_match;       // 8 - n_match
+  const need = schedinaN - n_match;          // 6 - n_match
+  const combosCompleto = nCr(remaining, need); // combinazioni nel sistema completo
+
+  // Scala al sistema ridotto (proporzione)
+  const combosRidotto = Math.round(combosCompleto * sistemaRidotto / sistemaCompleto);
+  const prizePerCombo = n_match === 6 ? currentJackpot : (QUOTE[n_match] || 0);
+  const totalPrize = combosRidotto * prizePerCombo;
+  return { combosCompleto, combosRidotto, prizePerCombo, totalPrize };
+}
+
+function fmtJackpot(v) {
+  if (v >= 1e9) return '€ ' + (v/1e9).toFixed(1).replace('.',',') + ' Mrd';
+  if (v >= 1e6) return '€ ' + (v/1e6).toFixed(1).replace('.',',') + ' Mln';
+  return '€ ' + Math.round(v).toLocaleString('it-IT');
+}
+
+function renderJackpot() {
+  const el = document.getElementById('jackpotValue');
+  if (el) el.textContent = fmtJackpot(currentJackpot);
+
+  const upd = document.getElementById('jackpotUpd');
+  if (upd) {
+    if (jackpotLastUpdate) {
+      const mins = Math.round((Date.now() - jackpotLastUpdate) / 60000);
+      upd.innerHTML = mins < 1
+        ? 'aggiornato <span>adesso</span>'
+        : `aggiornato <span>${mins} min fa</span>`;
+    } else {
+      upd.textContent = 'valore in tempo reale da Sisal';
+    }
+  }
+
+  // Render scenarios
+  const grid = document.getElementById('scenarioGrid');
+  if (!grid) return;
+  const scenarios = [
+    { cat: 'AMBO', n: 2, emoji: '🎯' },
+    { cat: 'TERNO', n: 3, emoji: '✨' },
+    { cat: 'QUATERNA', n: 4, emoji: '🌟' },
+    { cat: 'CINQUINA', n: 5, emoji: '💎' },
+  ];
+  grid.innerHTML = scenarios.map(s => {
+    const { combosRidotto, totalPrize } = calcSistemaScenario(s.n);
+    const isJackpot = s.n >= 6;
+    return `<div class="scenario-item${isJackpot?' jackpot-winner':''}">
+      <div class="scenario-cat">${s.emoji} ${s.cat}</div>
+      <div class="scenario-prize">${fmt(totalPrize)}</div>
+      <div class="scenario-detail">${combosRidotto} giocate vinte</div>
+    </div>`;
+  }).join('') + `
+    <div class="scenario-item jackpot-winner" style="grid-column:1/-1">
+      <div class="scenario-cat">🏆 SEI (1 combinazione)</div>
+      <div class="scenario-prize">${fmtJackpot(currentJackpot)}</div>
+      <div class="scenario-detail">probabilità ~54% con il sistema 15/28</div>
+    </div>`;
+}
+
+async function fetchJackpot() {
+  const btn = document.getElementById('jackpotRefreshBtn');
+  if (btn) btn.classList.add('spinning');
+
+  // Endpoints multipli con fallback
+  const targets = [
+    'https://www.sisal.it/api-integrations/halo-api/supere/SuperEnalotto/jackpot',
+    'https://www.sisal.it/api-integrations/halo-api/super-ema/1.0/jackpot/ema/SuperEnalotto',
+  ];
+  const proxies = [
+    url => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+    url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+  ];
+
+  let found = false;
+  outer: for (const target of targets) {
+    for (const proxy of proxies) {
+      try {
+        const controller = new AbortController();
+        const tid = setTimeout(() => controller.abort(), 7000);
+        const r = await fetch(proxy(target), { signal: controller.signal });
+        clearTimeout(tid);
+        if (!r.ok) continue;
+        const text = await r.text();
+        // Try JSON parse
+        let val = null;
+        try {
+          const j = JSON.parse(text);
+          // Cerca il jackpot in vari formati Sisal
+          val = j.jackpot ?? j.montepremi ?? j.amount ?? j.value ??
+                j?.data?.jackpot ?? j?.result?.jackpot ?? j?.response?.jackpot;
+          if (val && typeof val === 'object') val = val.amount || val.value || null;
+        } catch(e) {}
+        // Fallback: cerca numero intero nei dati
+        if (!val) {
+          const m = text.match(/"(?:jackpot|montepremi|amount|value)"\s*:\s*([0-9]+(?:\.[0-9]+)?)/i);
+          if (m) val = parseFloat(m[1]);
+        }
+        if (val && parseFloat(val) > 1000000) {
+          currentJackpot = parseFloat(val);
+          jackpotLastUpdate = Date.now();
+          found = true;
+          break outer;
+        }
+      } catch(e) { /* continua */ }
+    }
+  }
+
+  renderJackpot();
+  if (btn) btn.classList.remove('spinning');
+
+  // Aggiorna il timestamp ogni minuto
+  clearInterval(jackpotFetchTimer);
+  jackpotFetchTimer = setInterval(() => {
+    const upd = document.getElementById('jackpotUpd');
+    if (upd && jackpotLastUpdate) {
+      const mins = Math.round((Date.now() - jackpotLastUpdate) / 60000);
+      upd.innerHTML = mins < 1
+        ? 'aggiornato <span>adesso</span>'
+        : `aggiornato <span>${mins} min fa</span>`;
+    }
+  }, 60000);
+
+  // Auto-refresh ogni 10 minuti
+  setTimeout(fetchJackpot, 10 * 60 * 1000);
+}
+
+function triggerJackpotRefresh() {
+  fetchJackpot();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+
 function renderAll() {
   renderOurBalls();
   renderDraws(allDraws.slice(0,5));
   renderHistory(allDraws);
   renderStats();
   renderFc();
+  fetchJackpot(); // lancio fetch jackpot al caricamento
 }
 
 // ── PALLINE ───────────────────────────────────────────────────────────────
@@ -373,10 +598,100 @@ function renderHistory(draws) {
 }
 
 // ── STATISTICHE ───────────────────────────────────────────────────────────
-function renderStats() {
+async function renderStats() {
   const draws=allDraws;
   const tot=draws.length;
   let ambos=0,ternos=0,quaterne=0;
+
+  const freq={};
+  for(const n of OUR) freq[n]=0;
+
+  for(const d of draws) {
+    const w=d.wins||calcWins(d.numbers);
+    if(w[2]>0) ambos++;
+    if(w[3]>0) ternos++;
+    if(w[4]>0) quaterne++;
+    for(const n of d.numbers) if(OUR.includes(n)) freq[n]++;
+  }
+
+  const freqSorted=OUR.map(n=>([n,freq[n]])).sort((a,b)=>b[1]-a[1]);
+  const maxFreq=Math.max(...freqSorted.map(x=>x[1]),1);
+
+  // ── BILANCIO MAGNIFICO ───────────────────────────────────────────────────
+  const entries = await loadEntries().catch(()=>[]);
+  let totalSpent = 0, totalWon = 0;
+  for (const e of entries) {
+    if (e.type==='win') totalWon += e.amt;
+    else totalSpent += e.amt;
+  }
+  const netto = totalWon - totalSpent;
+  const isPos = netto >= 0;
+  // ROI: quanto hai vinto rispetto a quanto hai speso
+  const roiPct = totalSpent > 0 ? (totalWon / totalSpent * 100) : 0;
+  // Barra: larghezza proporzionale al vinto vs speso
+  const barPct = totalSpent > 0 ? Math.min(100, Math.round(totalWon / totalSpent * 100)) : 0;
+  const roiSign = netto >= 0 ? '+' : '';
+  const roiColor = isPos ? '#1a7a1a' : '#8a1a1a';
+
+  const bilancioHtml = `
+  <div class="bilancio-card">
+    <div class="bilancio-title">✦ BILANCIO MAGNIFICO ✦</div>
+    <div class="bilancio-row">
+      <div class="bilancio-label">💸 SPESO</div>
+      <div class="bilancio-val speso">${fmt(totalSpent)}</div>
+    </div>
+    <div class="bilancio-row">
+      <div class="bilancio-label">💰 VINTO</div>
+      <div class="bilancio-val vinto">${fmt(totalWon)}</div>
+    </div>
+    <div class="bilancio-bar-wrap">
+      <div class="bilancio-bar-fill ${isPos?'pos':'neg'}" style="width:${Math.max(4,barPct)}%">
+        <span class="bilancio-bar-pct">${barPct}%</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:#9a8a6a;font-family:'Cinzel',serif;letter-spacing:.1em;margin-top:-6px;margin-bottom:4px">
+      <span>VINTO / SPESO</span>
+      <span>${roiPct.toFixed(1)}%</span>
+    </div>
+    <div class="bilancio-netto">
+      <div class="bilancio-netto-label">RISULTATO NETTO</div>
+      <div class="bilancio-netto-val ${isPos?'pos':'neg'}">${roiSign}${fmt(Math.abs(netto))}</div>
+      <div class="bilancio-roi" style="color:${roiColor}">
+        ${isPos
+          ? `✅ Ogni euro speso hai recuperato <span>${(totalWon/Math.max(totalSpent,0.01)).toFixed(2).replace('.',',')} €</span>`
+          : `⚠️ Stai ancora inseguendo il pareggio di <span>${fmt(Math.abs(netto))}</span>`
+        }
+      </div>
+    </div>
+  </div>`;
+
+  const html=`
+  <div class="stat-grid">
+    <div class="stat-box"><div class="stat-num">${tot}</div><div class="stat-label">ESTRAZIONI ANALIZZATE</div></div>
+    <div class="stat-box highlight"><div class="stat-num" style="color:#1a7a1a">${ambos}</div><div class="stat-label">ESTRAZIONI CON AMBO</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:#b8860b">${ternos}</div><div class="stat-label">ESTRAZIONI CON TERNO</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:#8a4a00">${quaterne}</div><div class="stat-label">QUATERNE</div></div>
+  </div>
+  ${bilancioHtml}
+  <div class="card">
+    <div class="card-title">✦ FREQUENZA NUMERI ✦</div>
+    <div class="bar-chart">
+      ${freqSorted.map(([n,f])=>`<div class="bar ${f===0?'dim':''}" style="height:${Math.round(f/maxFreq*100)}%" title="${n}: ${f}x"></div>`).join('')}
+    </div>
+    <div class="bar-labels">
+      ${freqSorted.map(([n,f])=>`<div class="bar-lbl"><b>${n}</b>${f}x</div>`).join('')}
+    </div>
+  </div>`;
+
+  document.getElementById('statsContainer').innerHTML=html;
+
+  // Anima la barra bilancio dopo render
+  requestAnimationFrame(()=>{
+    const bar = document.querySelector('.bilancio-bar-fill');
+    if(bar){ bar.style.transition='none'; bar.style.width='0%';
+      requestAnimationFrame(()=>{ bar.style.transition='width 1.2s cubic-bezier(.4,0,.2,1)'; bar.style.width=Math.max(4,barPct)+'%'; }); }
+  });
+}
 
   // Frequenza nostri numeri
   const freq={};
