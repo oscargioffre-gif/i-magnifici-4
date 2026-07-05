@@ -1,6 +1,29 @@
 {
-  "updated": "2026-07-04T12:00:00Z",
+  "updated": "2026-07-05T10:00:00Z",
   "draws": [
+    {
+      "date": "Sabato 4 Luglio 2026",
+      "iso": "2026-07-04",
+      "numbers": [
+        2,
+        37,
+        55,
+        62,
+        72,
+        76
+      ],
+      "jolly": 34,
+      "superstar": 75,
+      "our_hits": 0,
+      "wins": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "jackpot": "189.000.000 €"
+    },
     {
       "date": "Venerdì 3 Luglio 2026",
       "numbers": [
