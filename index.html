@@ -142,7 +142,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   <div class="subtitle">SuperEnalotto · Controllo Automatico</div>
   <div class="divider"><span class="divider-star">✦</span></div>
 </div>
-<div class="updated" id="updatedTxt">Caricamento...</div>
+<div class="updated" id="updatedTxt" onclick="manualRefresh(this)" style="cursor:pointer">Caricamento...</div>
 
 <!-- TAB ESTRAZIONI -->
 <div class="section active" id="sec-draw">
@@ -273,11 +273,16 @@ function fmt(n){return'€ '+n.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})
 
 let allDraws = [];
 
+async function manualRefresh(el) {
+  el.textContent = '⟳ Aggiornamento...';
+  await loadData();
+}
+
 // ── CARICA DATI ───────────────────────────────────────────────────────────
 async function loadData() {
   let draws = FALLBACK_DRAWS;
   try {
-    const r = await fetch('data.json');
+    const r = await fetch('data.json?v='+Date.now(), {cache:'no-store'});
     if(r.ok) {
       const j = await r.json();
       if(j.draws && j.draws.length > 0) {
@@ -287,7 +292,7 @@ async function loadData() {
           if(!d.wins) { d.wins=calcWins(d.numbers); d.our_hits=OUR.filter(n=>d.numbers.includes(n)).length; }
           return d;
         });
-        document.getElementById('updatedTxt').textContent = j.updated ? 'Aggiornato: '+new Date(j.updated).toLocaleString('it-IT') : '';
+        document.getElementById('updatedTxt').textContent = (j.updated ? 'Dati del: '+new Date(j.updated).toLocaleString('it-IT') : '') + '  ·  tocca per aggiornare';
       }
     }
   } catch(e) {}
@@ -576,6 +581,21 @@ function showTab(t){
 }
 
 loadData();
+
+// ── AUTO-REFRESH ────────────────────────────────────────────────────────
+// 1. Ricarica quando l'app torna in primo piano (riapertura da home screen)
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'visible') loadData();
+});
+// 2. Ricarica ogni 5 minuti se l'app resta aperta
+setInterval(loadData, 5*60*1000);
+// 3. Nei giorni di estrazione (Mar,Gio,Ven,Sab) tra le 20:00 e le 23:00 controlla ogni 60s
+setInterval(() => {
+  const now = new Date();
+  const day = now.getDay();          // 2=Mar 4=Gio 5=Ven 6=Sab
+  const h = now.getHours();
+  if([2,4,5,6].includes(day) && h >= 20 && h < 23) loadData();
+}, 60*1000);
 </script>
 </body>
 </html>

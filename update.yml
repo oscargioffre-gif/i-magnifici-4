@@ -1,12 +1,23 @@
-name: Aggiorna Estrazioni SuperEnalotto
+name: Aggiorna SuperEnalotto
 
 on:
   schedule:
-    - cron: '30 19 * * 2'
-    - cron: '30 19 * * 4'
-    - cron: '30 19 * * 5'
-    - cron: '30 19 * * 6'
+    # Estrazione ore 20:00 italiane (Mar,Gio,Ven,Sab).
+    # Piu' tentativi per coprire ritardi di pubblicazione,
+    # ritardi dello scheduler GitHub e ora legale/solare.
+    - cron: '15 18 * * 2,4,5,6'
+    - cron: '45 18 * * 2,4,5,6'
+    - cron: '15 19 * * 2,4,5,6'
+    - cron: '45 19 * * 2,4,5,6'
+    - cron: '30 20 * * 2,4,5,6'
+    - cron: '30 21 * * 2,4,5,6'
+    # Rete di sicurezza: la mattina dopo alle 08:00 italiane
+    - cron: '0 6 * * 3,5,6,0'
   workflow_dispatch:
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -19,6 +30,7 @@ jobs:
       - run: python3 fetch.py
       - run: git config user.name "bot"
       - run: git config user.email "bot@github.com"
+      - run: git pull --rebase || true
       - run: git add data.json
       - run: git diff --staged --quiet || git commit -m "Estrazioni aggiornate"
-      - run: git push
+      - run: git push || true
