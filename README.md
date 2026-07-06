@@ -4,9 +4,9 @@ App SuperEnalotto per il controllo automatico delle estrazioni contro i nostri n
 
 ## 🚀 Apri l'App
 
-### **[▶️ AVVIA I MAGNIFICI 4](https://oscargioffre-gif.github.io/i-magnifici-4)**
+### **[▶️ AVVIA I MAGNIFICI 4](https://oscargioffre-gif.github.io/i-magnifici-4/)**
 
-`https://oscargioffre-gif.github.io/i-magnifici-4`
+`https://oscargioffre-gif.github.io/i-magnifici-4/`
 
 ## 📱 Installazione sul telefono
 
@@ -27,8 +27,8 @@ Sistema da 15 giocate — Estrazioni ogni martedì, giovedì, venerdì e sabato 
 ## ⚙️ Funzionalità
 
 - 🎰 **Estrazioni** — ultimi risultati con evidenza automatica di ambi, terni, quaterne
-- 📜 **Storico** — archivio completo con filtri per mese e per vincite
-- 📊 **Statistiche** — simulazione premi, bilancio speso/vinto, frequenza numeri
+- 📜 **Storico** — solo le estrazioni con vincite, senza distrazioni
+- 📊 **Statistiche** — frequenza dei nostri numeri e conteggio vincite
 - 💰 **Fondocassa** — cassa comune condivisa tra tutti e 4
 
 ## 🤖 Aggiornamento Automatico
