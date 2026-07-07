@@ -1,9 +1,21 @@
 {
-  "updated": "2026-07-05T10:00:00Z",
+  "updated": "2026-07-07T21:39:48Z",
   "draws": [
     {
+      "date": "Martedì 7 Luglio 2026",
+      "numbers": [
+        3,
+        16,
+        30,
+        53,
+        55,
+        79
+      ],
+      "jolly": 84,
+      "superstar": 66
+    },
+    {
       "date": "Sabato 4 Luglio 2026",
-      "iso": "2026-07-04",
       "numbers": [
         2,
         37,
@@ -13,16 +25,7 @@
         76
       ],
       "jolly": 34,
-      "superstar": 75,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "jackpot": "189.000.000 €"
+      "superstar": 75
     },
     {
       "date": "Venerdì 3 Luglio 2026",
@@ -35,15 +38,7 @@
         86
       ],
       "jolly": 72,
-      "superstar": 48,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 48
     },
     {
       "date": "Giovedì 2 Luglio 2026",
@@ -56,15 +51,7 @@
         59
       ],
       "jolly": 51,
-      "superstar": 82,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 82
     },
     {
       "date": "Martedì 30 Giugno 2026",
@@ -77,15 +64,7 @@
         83
       ],
       "jolly": 13,
-      "superstar": 66,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 66
     },
     {
       "date": "Sabato 27 Giugno 2026",
@@ -98,15 +77,7 @@
         90
       ],
       "jolly": 42,
-      "superstar": 62,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 62
     },
     {
       "date": "Venerdì 26 Giugno 2026",
@@ -119,15 +90,7 @@
         76
       ],
       "jolly": 64,
-      "superstar": 49,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 49
     },
     {
       "date": "Giovedì 25 Giugno 2026",
@@ -140,15 +103,7 @@
         76
       ],
       "jolly": 31,
-      "superstar": 80,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 80
     },
     {
       "date": "Martedì 23 Giugno 2026",
@@ -161,15 +116,7 @@
         84
       ],
       "jolly": 61,
-      "superstar": 4,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 4
     },
     {
       "date": "Sabato 20 Giugno 2026",
@@ -182,15 +129,7 @@
         89
       ],
       "jolly": 47,
-      "superstar": 3,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 3
     },
     {
       "date": "Venerdì 19 Giugno 2026",
@@ -203,15 +142,7 @@
         89
       ],
       "jolly": 11,
-      "superstar": 69,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 69
     },
     {
       "date": "Giovedì 18 Giugno 2026",
@@ -224,15 +155,7 @@
         87
       ],
       "jolly": 57,
-      "superstar": 57,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 57
     },
     {
       "date": "Martedì 16 Giugno 2026",
@@ -245,15 +168,7 @@
         80
       ],
       "jolly": 48,
-      "superstar": 72,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 72
     },
     {
       "date": "Sabato 13 Giugno 2026",
@@ -266,15 +181,7 @@
         90
       ],
       "jolly": 80,
-      "superstar": 54,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 54
     },
     {
       "date": "Venerdì 12 Giugno 2026",
@@ -287,15 +194,7 @@
         83
       ],
       "jolly": 26,
-      "superstar": 20,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 20
     },
     {
       "date": "Giovedì 11 Giugno 2026",
@@ -308,15 +207,7 @@
         87
       ],
       "jolly": 53,
-      "superstar": 83,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 83
     },
     {
       "date": "Martedì 9 Giugno 2026",
@@ -329,15 +220,7 @@
         80
       ],
       "jolly": 90,
-      "superstar": 54,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 54
     },
     {
       "date": "Lunedì 8 Giugno 2026",
@@ -350,15 +233,7 @@
         87
       ],
       "jolly": 88,
-      "superstar": 87,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 87
     },
     {
       "date": "Sabato 6 Giugno 2026",
@@ -371,15 +246,7 @@
         89
       ],
       "jolly": 57,
-      "superstar": 38,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 38
     },
     {
       "date": "Venerdì 5 Giugno 2026",
@@ -392,15 +259,7 @@
         89
       ],
       "jolly": 90,
-      "superstar": 40,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 40
     },
     {
       "date": "Giovedì 4 Giugno 2026",
@@ -413,15 +272,7 @@
         75
       ],
       "jolly": 70,
-      "superstar": 59,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 59
     },
     {
       "date": "Sabato 30 Maggio 2026",
@@ -434,15 +285,7 @@
         71
       ],
       "jolly": 72,
-      "superstar": 56,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 56
     },
     {
       "date": "Venerdì 29 Maggio 2026",
@@ -455,15 +298,7 @@
         90
       ],
       "jolly": 56,
-      "superstar": 20,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 20
     },
     {
       "date": "Giovedì 28 Maggio 2026",
@@ -476,15 +311,7 @@
         86
       ],
       "jolly": 81,
-      "superstar": 34,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 34
     },
     {
       "date": "Martedì 26 Maggio 2026",
@@ -497,15 +324,7 @@
         61
       ],
       "jolly": 2,
-      "superstar": 45,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 45
     },
     {
       "date": "Sabato 23 Maggio 2026",
@@ -518,15 +337,7 @@
         69
       ],
       "jolly": 20,
-      "superstar": 16,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 16
     },
     {
       "date": "Venerdì 22 Maggio 2026",
@@ -539,15 +350,7 @@
         87
       ],
       "jolly": 50,
-      "superstar": 86,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 86
     },
     {
       "date": "Giovedì 21 Maggio 2026",
@@ -560,15 +363,7 @@
         81
       ],
       "jolly": 28,
-      "superstar": 50,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 50
     },
     {
       "date": "Martedì 19 Maggio 2026",
@@ -581,15 +376,7 @@
         86
       ],
       "jolly": 8,
-      "superstar": 36,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 36
     },
     {
       "date": "Sabato 16 Maggio 2026",
@@ -602,15 +389,7 @@
         90
       ],
       "jolly": 59,
-      "superstar": 36,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 36
     },
     {
       "date": "Venerdì 15 Maggio 2026",
@@ -623,15 +402,7 @@
         68
       ],
       "jolly": 42,
-      "superstar": 19,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 19
     },
     {
       "date": "Giovedì 14 Maggio 2026",
@@ -644,15 +415,7 @@
         85
       ],
       "jolly": 18,
-      "superstar": 34,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 34
     },
     {
       "date": "Martedì 12 Maggio 2026",
@@ -665,15 +428,7 @@
         59
       ],
       "jolly": 5,
-      "superstar": 2,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 2
     },
     {
       "date": "Sabato 9 Maggio 2026",
@@ -686,15 +441,7 @@
         62
       ],
       "jolly": 11,
-      "superstar": 11,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 11
     },
     {
       "date": "Venerdì 8 Maggio 2026",
@@ -707,15 +454,7 @@
         90
       ],
       "jolly": 82,
-      "superstar": 69,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 69
     },
     {
       "date": "Giovedì 7 Maggio 2026",
@@ -728,15 +467,7 @@
         73
       ],
       "jolly": 75,
-      "superstar": 58,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 58
     },
     {
       "date": "Martedì 5 Maggio 2026",
@@ -749,15 +480,7 @@
         87
       ],
       "jolly": 23,
-      "superstar": 52,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 52
     },
     {
       "date": "Lunedì 4 Maggio 2026",
@@ -770,15 +493,7 @@
         63
       ],
       "jolly": 75,
-      "superstar": 24,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 24
     },
     {
       "date": "Sabato 2 Maggio 2026",
@@ -791,15 +506,7 @@
         86
       ],
       "jolly": 2,
-      "superstar": 19,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 19
     },
     {
       "date": "Giovedì 30 Aprile 2026",
@@ -812,15 +519,7 @@
         58
       ],
       "jolly": 40,
-      "superstar": 16,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 16
     },
     {
       "date": "Martedì 28 Aprile 2026",
@@ -833,15 +532,7 @@
         60
       ],
       "jolly": 27,
-      "superstar": 30,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 30
     },
     {
       "date": "Lunedì 27 Aprile 2026",
@@ -854,15 +545,7 @@
         87
       ],
       "jolly": 23,
-      "superstar": 56,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 56
     },
     {
       "date": "Venerdì 24 Aprile 2026",
@@ -875,15 +558,7 @@
         82
       ],
       "jolly": 56,
-      "superstar": 20,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 20
     },
     {
       "date": "Giovedì 23 Aprile 2026",
@@ -896,15 +571,7 @@
         58
       ],
       "jolly": 72,
-      "superstar": 57,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 57
     },
     {
       "date": "Martedì 21 Aprile 2026",
@@ -917,15 +584,7 @@
         77
       ],
       "jolly": 6,
-      "superstar": 65,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 65
     },
     {
       "date": "Sabato 18 Aprile 2026",
@@ -938,15 +597,7 @@
         77
       ],
       "jolly": 9,
-      "superstar": 70,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 70
     },
     {
       "date": "Venerdì 17 Aprile 2026",
@@ -959,15 +610,7 @@
         84
       ],
       "jolly": 34,
-      "superstar": 63,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 63
     },
     {
       "date": "Giovedì 16 Aprile 2026",
@@ -980,15 +623,7 @@
         54
       ],
       "jolly": 60,
-      "superstar": 39,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 39
     },
     {
       "date": "Martedì 14 Aprile 2026",
@@ -1001,15 +636,7 @@
         66
       ],
       "jolly": 17,
-      "superstar": 6,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 6
     },
     {
       "date": "Sabato 11 Aprile 2026",
@@ -1022,15 +649,7 @@
         85
       ],
       "jolly": 59,
-      "superstar": 57,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 57
     },
     {
       "date": "Venerdì 10 Aprile 2026",
@@ -1043,15 +662,7 @@
         90
       ],
       "jolly": 32,
-      "superstar": 7,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 7
     },
     {
       "date": "Giovedì 9 Aprile 2026",
@@ -1064,15 +675,7 @@
         84
       ],
       "jolly": 19,
-      "superstar": 82,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 82
     },
     {
       "date": "Martedì 7 Aprile 2026",
@@ -1085,15 +688,7 @@
         59
       ],
       "jolly": 7,
-      "superstar": 60,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 60
     },
     {
       "date": "Sabato 4 Aprile 2026",
@@ -1106,15 +701,7 @@
         81
       ],
       "jolly": 42,
-      "superstar": 80,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 80
     },
     {
       "date": "Venerdì 3 Aprile 2026",
@@ -1127,15 +714,7 @@
         72
       ],
       "jolly": 44,
-      "superstar": 6,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 6
     },
     {
       "date": "Giovedì 2 Aprile 2026",
@@ -1148,15 +727,7 @@
         63
       ],
       "jolly": 40,
-      "superstar": 80,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 80
     },
     {
       "date": "Martedì 31 Marzo 2026",
@@ -1169,15 +740,7 @@
         61
       ],
       "jolly": 25,
-      "superstar": 67,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 67
     },
     {
       "date": "Sabato 28 Marzo 2026",
@@ -1190,15 +753,7 @@
         81
       ],
       "jolly": 36,
-      "superstar": 54,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 54
     },
     {
       "date": "Venerdì 27 Marzo 2026",
@@ -1211,15 +766,7 @@
         64
       ],
       "jolly": 10,
-      "superstar": 74,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 74
     },
     {
       "date": "Giovedì 26 Marzo 2026",
@@ -1232,15 +779,7 @@
         80
       ],
       "jolly": 82,
-      "superstar": 3,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 3
     },
     {
       "date": "Martedì 24 Marzo 2026",
@@ -1253,15 +792,7 @@
         87
       ],
       "jolly": 10,
-      "superstar": 65,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 65
     },
     {
       "date": "Sabato 21 Marzo 2026",
@@ -1274,15 +805,7 @@
         55
       ],
       "jolly": 50,
-      "superstar": 4,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 4
     },
     {
       "date": "Venerdì 20 Marzo 2026",
@@ -1295,15 +818,7 @@
         87
       ],
       "jolly": 61,
-      "superstar": 50,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 50
     },
     {
       "date": "Giovedì 19 Marzo 2026",
@@ -1316,15 +831,7 @@
         89
       ],
       "jolly": 42,
-      "superstar": 45,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 45
     },
     {
       "date": "Martedì 17 Marzo 2026",
@@ -1337,15 +844,7 @@
         56
       ],
       "jolly": 60,
-      "superstar": 6,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 6
     },
     {
       "date": "Sabato 14 Marzo 2026",
@@ -1358,15 +857,7 @@
         89
       ],
       "jolly": 18,
-      "superstar": 87,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 87
     },
     {
       "date": "Venerdì 13 Marzo 2026",
@@ -1379,15 +870,7 @@
         61
       ],
       "jolly": 88,
-      "superstar": 43,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 43
     },
     {
       "date": "Giovedì 12 Marzo 2026",
@@ -1400,15 +883,7 @@
         64
       ],
       "jolly": 43,
-      "superstar": 54,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 54
     },
     {
       "date": "Martedì 10 Marzo 2026",
@@ -1421,15 +896,7 @@
         83
       ],
       "jolly": 4,
-      "superstar": 42,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 42
     },
     {
       "date": "Sabato 7 Marzo 2026",
@@ -1442,15 +909,7 @@
         69
       ],
       "jolly": 5,
-      "superstar": 49,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 49
     },
     {
       "date": "Venerdì 6 Marzo 2026",
@@ -1463,15 +922,7 @@
         88
       ],
       "jolly": 20,
-      "superstar": 2,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 2
     },
     {
       "date": "Giovedì 5 Marzo 2026",
@@ -1484,15 +935,7 @@
         78
       ],
       "jolly": 22,
-      "superstar": 35,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 35
     },
     {
       "date": "Martedì 3 Marzo 2026",
@@ -1505,15 +948,7 @@
         68
       ],
       "jolly": 26,
-      "superstar": 83,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 83
     },
     {
       "date": "Sabato 28 Febbraio 2026",
@@ -1526,15 +961,7 @@
         80
       ],
       "jolly": 15,
-      "superstar": 27,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 27
     },
     {
       "date": "Venerdì 27 Febbraio 2026",
@@ -1547,15 +974,7 @@
         79
       ],
       "jolly": 80,
-      "superstar": 36,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 36
     },
     {
       "date": "Giovedì 26 Febbraio 2026",
@@ -1568,15 +987,7 @@
         72
       ],
       "jolly": 69,
-      "superstar": 47,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 47
     },
     {
       "date": "Martedì 24 Febbraio 2026",
@@ -1589,15 +1000,7 @@
         87
       ],
       "jolly": 82,
-      "superstar": 29,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 29
     },
     {
       "date": "Sabato 21 Febbraio 2026",
@@ -1610,15 +1013,7 @@
         81
       ],
       "jolly": 75,
-      "superstar": 58,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 58
     },
     {
       "date": "Venerdì 20 Febbraio 2026",
@@ -1631,15 +1026,7 @@
         83
       ],
       "jolly": 64,
-      "superstar": 77,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 77
     },
     {
       "date": "Giovedì 19 Febbraio 2026",
@@ -1652,15 +1039,7 @@
         90
       ],
       "jolly": 53,
-      "superstar": 53,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 53
     },
     {
       "date": "Martedì 17 Febbraio 2026",
@@ -1673,15 +1052,7 @@
         88
       ],
       "jolly": 58,
-      "superstar": 21,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 21
     },
     {
       "date": "Sabato 14 Febbraio 2026",
@@ -1694,15 +1065,7 @@
         85
       ],
       "jolly": 6,
-      "superstar": 47,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 47
     },
     {
       "date": "Venerdì 13 Febbraio 2026",
@@ -1715,15 +1078,7 @@
         83
       ],
       "jolly": 37,
-      "superstar": 3,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 3
     },
     {
       "date": "Giovedì 12 Febbraio 2026",
@@ -1736,15 +1091,7 @@
         85
       ],
       "jolly": 66,
-      "superstar": 29,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 29
     },
     {
       "date": "Martedì 10 Febbraio 2026",
@@ -1757,15 +1104,7 @@
         83
       ],
       "jolly": 73,
-      "superstar": 21,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 21
     },
     {
       "date": "Sabato 7 Febbraio 2026",
@@ -1778,15 +1117,7 @@
         81
       ],
       "jolly": 41,
-      "superstar": 67,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 67
     },
     {
       "date": "Venerdì 6 Febbraio 2026",
@@ -1799,15 +1130,7 @@
         75
       ],
       "jolly": 90,
-      "superstar": 82,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 82
     },
     {
       "date": "Giovedì 5 Febbraio 2026",
@@ -1820,15 +1143,7 @@
         90
       ],
       "jolly": 41,
-      "superstar": 30,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 30
     },
     {
       "date": "Martedì 3 Febbraio 2026",
@@ -1841,15 +1156,7 @@
         46
       ],
       "jolly": 70,
-      "superstar": 57,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 57
     },
     {
       "date": "Sabato 31 Gennaio 2026",
@@ -1862,15 +1169,7 @@
         80
       ],
       "jolly": 11,
-      "superstar": 80,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 80
     },
     {
       "date": "Venerdì 30 Gennaio 2026",
@@ -1883,15 +1182,7 @@
         86
       ],
       "jolly": 63,
-      "superstar": 16,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 16
     },
     {
       "date": "Giovedì 29 Gennaio 2026",
@@ -1904,15 +1195,7 @@
         80
       ],
       "jolly": 88,
-      "superstar": 11,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 11
     },
     {
       "date": "Martedì 27 Gennaio 2026",
@@ -1925,15 +1208,7 @@
         84
       ],
       "jolly": 38,
-      "superstar": 37,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 37
     },
     {
       "date": "Sabato 24 Gennaio 2026",
@@ -1946,15 +1221,7 @@
         71
       ],
       "jolly": 21,
-      "superstar": 18,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 18
     },
     {
       "date": "Venerdì 23 Gennaio 2026",
@@ -1967,15 +1234,7 @@
         90
       ],
       "jolly": 69,
-      "superstar": 52,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 52
     },
     {
       "date": "Giovedì 22 Gennaio 2026",
@@ -1988,15 +1247,7 @@
         78
       ],
       "jolly": 59,
-      "superstar": 25,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 25
     },
     {
       "date": "Martedì 20 Gennaio 2026",
@@ -2009,15 +1260,7 @@
         74
       ],
       "jolly": 78,
-      "superstar": 34,
-      "our_hits": 1,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 34
     },
     {
       "date": "Sabato 17 Gennaio 2026",
@@ -2030,15 +1273,7 @@
         83
       ],
       "jolly": 79,
-      "superstar": 82,
-      "our_hits": 2,
-      "wins": {
-        "2": 15,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 82
     },
     {
       "date": "Venerdì 16 Gennaio 2026",
@@ -2051,15 +1286,7 @@
         86
       ],
       "jolly": 57,
-      "superstar": 14,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 14
     },
     {
       "date": "Giovedì 15 Gennaio 2026",
@@ -2072,15 +1299,7 @@
         85
       ],
       "jolly": 36,
-      "superstar": 1,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 1
     },
     {
       "date": "Martedì 13 Gennaio 2026",
@@ -2093,15 +1312,7 @@
         74
       ],
       "jolly": 35,
-      "superstar": 50,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 50
     },
     {
       "date": "Lunedì 12 Gennaio 2026",
@@ -2114,15 +1325,7 @@
         81
       ],
       "jolly": 70,
-      "superstar": 22,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 22
     },
     {
       "date": "Sabato 10 Gennaio 2026",
@@ -2135,15 +1338,7 @@
         88
       ],
       "jolly": 58,
-      "superstar": 48,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 48
     },
     {
       "date": "Venerdì 9 Gennaio 2026",
@@ -2156,15 +1351,7 @@
         72
       ],
       "jolly": 87,
-      "superstar": 18,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 18
     },
     {
       "date": "Giovedì 8 Gennaio 2026",
@@ -2177,15 +1364,7 @@
         88
       ],
       "jolly": 66,
-      "superstar": 52,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 52
     },
     {
       "date": "Lunedì 5 Gennaio 2026",
@@ -2198,15 +1377,7 @@
         84
       ],
       "jolly": 41,
-      "superstar": 13,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 13
     },
     {
       "date": "Sabato 3 Gennaio 2026",
@@ -2219,15 +1390,7 @@
         76
       ],
       "jolly": 36,
-      "superstar": 58,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 58
     },
     {
       "date": "Venerdì 2 Gennaio 2026",
@@ -2240,15 +1403,7 @@
         89
       ],
       "jolly": 16,
-      "superstar": 7,
-      "our_hits": 0,
-      "wins": {
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      }
+      "superstar": 7
     }
   ]
 }
