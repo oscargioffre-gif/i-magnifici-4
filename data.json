@@ -1,6 +1,19 @@
 {
-  "updated": "2026-07-09T21:43:11Z",
+  "updated": "2026-07-10T21:19:27Z",
   "draws": [
+    {
+      "date": "Venerdì 10 Luglio 2026",
+      "numbers": [
+        2,
+        3,
+        12,
+        28,
+        63,
+        82
+      ],
+      "jolly": 76,
+      "superstar": 79
+    },
     {
       "date": "Giovedì 9 Luglio 2026",
       "numbers": [
