@@ -123,7 +123,7 @@ body{background:var(--bg);color:#1a1400;font-family:'Cormorant Garamond',serif;f
 .my-cell{width:54px;height:54px;border-radius:12px;border:2px solid var(--gold);background:#fffbe8;text-align:center;font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:#3a2000;-moz-appearance:textfield}
 .my-cell::-webkit-outer-spin-button,.my-cell::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .my-cell:focus{outline:none;border-color:#FFD700;box-shadow:0 0 8px #FFD70066}
-.my-btns{display:flex;gap:8px;margin-top:14px}
+.my-btns{display:flex;flex-direction:column;gap:8px;margin-top:14px}
 .jump-btn{display:block;width:100%;padding:13px;margin-bottom:14px;border-radius:24px;border:1px solid var(--gold);background:linear-gradient(135deg,#1a1400,#2a2000);color:#FFD700;font-family:'Cinzel',serif;font-size:14px;letter-spacing:.2em;font-weight:700;cursor:pointer}
 .our-status{text-align:center;font-size:15px;color:#6a5a30;margin:-6px 0 10px;line-height:1.4}
 .hint{text-align:center;font-size:15px;color:#6a5a30;margin-top:10px;line-height:1.4}
@@ -217,7 +217,7 @@ body{background:var(--bg);color:#1a1400;font-family:'Cormorant Garamond',serif;f
     <div class="hint">Scrivi 8 numeri e premi <b>SALVA E GIOCA</b>: da quel momento l'app controlla le estrazioni con questi. Il 🗑️ riporta ai numeri fortunati originali. Le estrazioni già fatte restano valutate con i numeri in gioco allora.</div>
     <div class="my-btns">
       <button class="fc-btn" onclick="saveMyNums()">💾 SALVA E GIOCA</button>
-      <button class="fc-btn" style="background:linear-gradient(135deg,#3a1a1a,#5a2a2a);color:#ff8a8a" onclick="clearMyNums()">🗑️ NUMERI ORIGINALI</button>
+      <button class="fc-btn" style="background:linear-gradient(135deg,#3a1a1a,#5a2a2a);color:#ff8a8a" onclick="clearMyNums()">🗑️ RITORNA A GIOCARE I NUMERI ORIGINALI</button>
     </div>
   </div>
   <div class="card">
@@ -557,8 +557,8 @@ function renderMyNums(){
   document.getElementById('playStatus').innerHTML=custom
     ? '✏️ In gioco ora: numeri personalizzati'
     : '⭐ In gioco ora: i numeri fortunati originali';
-  document.getElementById('myNums').innerHTML=Array.from({length:8},(_,i)=>
-    `<input class="my-cell" type="number" inputmode="numeric" min="1" max="90" value="${set[i]||''}">`).join('');
+  document.getElementById('myNums').innerHTML=Array.from({length:8},()=>
+    `<input class="my-cell" type="number" inputmode="numeric" min="1" max="90" value="">`).join('');
   renderPlayedHistory();
 }
 
