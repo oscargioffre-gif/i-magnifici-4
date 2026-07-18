@@ -125,6 +125,16 @@ body{background:var(--bg);color:#1a1400;font-family:'Cormorant Garamond',serif;f
 .my-cell:focus{outline:none;border-color:#FFD700;box-shadow:0 0 8px #FFD70066}
 .my-btns{display:flex;gap:8px;margin-top:14px}
 .jump-btn{display:block;width:100%;padding:13px;margin-bottom:14px;border-radius:24px;border:1px solid var(--gold);background:linear-gradient(135deg,#1a1400,#2a2000);color:#FFD700;font-family:'Cinzel',serif;font-size:14px;letter-spacing:.2em;font-weight:700;cursor:pointer}
+.our-status{text-align:center;font-size:15px;color:#6a5a30;margin:-6px 0 10px;line-height:1.4}
+.hint{text-align:center;font-size:15px;color:#6a5a30;margin-top:10px;line-height:1.4}
+/* STORIA NUMERI GIOCATI */
+.era{border:1px solid #d4c89a;border-radius:12px;padding:12px;margin-bottom:10px;background:var(--card2)}
+.era-active{border:2px solid var(--gold);background:#fffbe8}
+.era-dates{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;color:#6a5a30;margin-bottom:8px}
+.era-active .era-dates{color:var(--gold);font-weight:700}
+.era-nums{display:flex;gap:6px;flex-wrap:wrap}
+.era-ball{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:14px;font-weight:700;background:#e8e0d0;color:#5a4a2a;border:1px solid #c4b890}
+.era-active .era-ball{background:radial-gradient(circle at 35% 35%,#fff5a0,#FFD700 40%,#b8860b 80%);color:#3a2000;border:none}
 
 /* ── FILIGRANA ──────────────────────────────────────────────────────────── */
 .card::after,
@@ -184,10 +194,11 @@ body{background:var(--bg);color:#1a1400;font-family:'Cormorant Garamond',serif;f
 <!-- TAB ESTRAZIONI -->
 <div class="section active" id="sec-draw">
   <div class="card">
-    <div class="card-title">✦ I NOSTRI NUMERI FORTUNATI ✦</div>
+    <div class="card-title">✦ NUMERI IN GIOCO ✦</div>
+    <div class="our-status" id="ourStatus"></div>
     <div class="our-balls" id="ourBalls"></div>
   </div>
-  <button class="jump-btn" onclick="showTab('hot')">🔥 VEDI I PIÙ ESTRATTI</button>
+  <button class="jump-btn" onclick="showTab('hot')">🔥 PIÙ ESTRATTI · CAMBIA NUMERI</button>
   <div id="drawsContainer"></div>
 </div>
 
@@ -200,12 +211,18 @@ body{background:var(--bg);color:#1a1400;font-family:'Cormorant Garamond',serif;f
     <div id="hotChart"></div>
   </div>
   <div class="card">
-    <div class="card-title">✦ I MIEI NUMERI ✦</div>
+    <div class="card-title">✦ CAMBIA I NUMERI IN GIOCO ✦</div>
+    <div class="our-status" id="playStatus"></div>
     <div class="my-grid" id="myNums"></div>
+    <div class="hint">Scrivi 8 numeri e premi <b>SALVA E GIOCA</b>: da quel momento l'app controlla le estrazioni con questi. Il 🗑️ riporta ai numeri fortunati originali. Le estrazioni già fatte restano valutate con i numeri in gioco allora.</div>
     <div class="my-btns">
-      <button class="fc-btn" onclick="saveMyNums()">💾 SALVA</button>
-      <button class="fc-btn" style="background:linear-gradient(135deg,#3a1a1a,#5a2a2a);color:#ff8a8a" onclick="clearMyNums()">🗑️ CESTINO</button>
+      <button class="fc-btn" onclick="saveMyNums()">💾 SALVA E GIOCA</button>
+      <button class="fc-btn" style="background:linear-gradient(135deg,#3a1a1a,#5a2a2a);color:#ff8a8a" onclick="clearMyNums()">🗑️ NUMERI ORIGINALI</button>
     </div>
+  </div>
+  <div class="card">
+    <div class="card-title">✦ STORIA DEI NUMERI GIOCATI ✦</div>
+    <div id="playedHistoryList"></div>
   </div>
 </div>
 
@@ -303,17 +320,34 @@ function getCombos(arr, r) {
   helper(0,[]);
   return result;
 }
-const COMBOS = getCombos(OUR, 6); // 28
+// ── NUMERI IN GIOCO NEL TEMPO ─────────────────────────────────────────────
+// Storico permanente dei numeri giocati: non si cancella mai. Ogni estrazione
+// viene valutata con i numeri che erano in gioco alla sua data.
+let playedHistory=[{from:'2020-01-01T00:00:00.000Z',numbers:[...OUR]}];
+function currentSet(){return playedHistory[playedHistory.length-1].numbers;}
 
-function calcWins(nums) {
+const COMBO_CACHE={};
+function combosFor(set){const k=set.join(',');if(!COMBO_CACHE[k])COMBO_CACHE[k]=getCombos(set,6);return COMBO_CACHE[k];}
+
+function calcWinsSet(nums,set) {
   const s = new Set(nums);
   const w={2:0,3:0,4:0,5:0,6:0};
-  for(const c of COMBOS) {
+  for(const c of combosFor(set)) {
     let h=0; for(const n of c) if(s.has(n)) h++;
     if(h>=2) w[h]++;
   }
   return w;
 }
+
+// Numeri in gioco alla data dell'estrazione (sorteggio ore 20:00)
+function setAtDraw(d){
+  const dt=parseItDate(d.date);
+  const t=dt?dt.getTime()+20*3600*1000:Date.now();
+  let s=playedHistory[0].numbers;
+  for(const p of playedHistory){ if(new Date(p.from).getTime()<=t) s=p.numbers; }
+  return s;
+}
+function winsFor(d){return calcWinsSet(d.numbers,setAtDraw(d));}
 
 function fmt(n){return'€ '+n.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
 
@@ -333,11 +367,6 @@ async function loadData() {
       const j = await r.json();
       if(j.draws && j.draws.length > 0) {
         draws = j.draws;
-        // Ricalcola wins se non presenti
-        draws = draws.map(d => {
-          if(!d.wins) { d.wins=calcWins(d.numbers); d.our_hits=OUR.filter(n=>d.numbers.includes(n)).length; }
-          return d;
-        });
         document.getElementById('updatedTxt').textContent = (j.updated ? 'Dati del: '+new Date(j.updated).toLocaleString('it-IT') : '') + '  ·  tocca per aggiornare';
       }
     }
@@ -358,10 +387,10 @@ function renderAll() {
 }
 
 // ── PALLINE ───────────────────────────────────────────────────────────────
-function ballHtml(n, drawNums, size='md') {
+function ballHtml(n, drawNums, size='md', set) {
   const cls = size==='sm'?'ball-sm':'ball';
   const inDraw = drawNums ? drawNums.includes(n) : false;
-  const isOurs = OUR.includes(n);
+  const isOurs = (set||currentSet()).includes(n);
   let style='';
   if(drawNums) {
     if(inDraw && isOurs) style='background:radial-gradient(circle at 35% 35%,#fff5a0,#FFD700 40%,#b8860b 80%);color:#3a2000;box-shadow:0 0 10px #FFD70066';
@@ -375,12 +404,18 @@ function ballHtml(n, drawNums, size='md') {
 }
 
 function renderOurBalls() {
-  document.getElementById('ourBalls').innerHTML = OUR.map(n=>ballHtml(n,null)).join('');
+  const set=currentSet();
+  const custom=set.join(',')!==OUR.join(',');
+  const since=new Date(playedHistory[playedHistory.length-1].from).toLocaleDateString('it-IT');
+  document.getElementById('ourStatus').innerHTML=custom
+    ? `✏️ Numeri personalizzati · in gioco dal ${since}`
+    : `⭐ I nostri numeri fortunati originali`;
+  document.getElementById('ourBalls').innerHTML = set.map(n=>ballHtml(n,null)).join('');
 }
 
 // ── ESTRAZIONI RECENTI ────────────────────────────────────────────────────
 function winBadge(d) {
-  const w=d.wins||calcWins(d.numbers);
+  const w=winsFor(d);
   if(w[6]>0) return `<span class="win-badge quaterna">🏆 SEI!</span>`;
   if(w[5]>0) return `<span class="win-badge quaterna">⭐ CINQUINA!</span>`;
   if(w[4]>0) return `<span class="win-badge quaterna">🎯 QUATERNA!</span>`;
@@ -390,7 +425,7 @@ function winBadge(d) {
 }
 
 function winDetail(d) {
-  const w=d.wins||calcWins(d.numbers);
+  const w=winsFor(d);
   const parts=[];
   for(const [k,v] of Object.entries(w)) {
     if(v>0) {
@@ -405,9 +440,10 @@ function winDetail(d) {
 }
 
 function drawCardHtml(d) {
-  const w=d.wins||calcWins(d.numbers);
+  const w=winsFor(d);
   const hasWin = Object.values(w).some(v=>v>0);
-  const balls = d.numbers.map(n=>ballHtml(n,d.numbers,'sm')).join('');
+  const set=setAtDraw(d);
+  const balls = d.numbers.map(n=>ballHtml(n,d.numbers,'sm',set)).join('');
   return `<div class="draw-card ${hasWin?'has-win':''}">
     <div class="draw-date">
       <div class="draw-date-txt">${d.date}</div>
@@ -441,7 +477,7 @@ const MONTH_MAP={'jan':'Gennaio','feb':'Febbraio','mar':'Marzo','apr':'Aprile','
 
 function renderHistory(draws) {
   // Mostra solo le estrazioni con almeno una vincita
-  const filtered = draws.filter(d=>Object.values(d.wins||calcWins(d.numbers)).some(v=>v>0));
+  const filtered = draws.filter(d=>Object.values(winsFor(d)).some(v=>v>0));
   document.getElementById('historyContainer').innerHTML = filtered.length
     ? filtered.map(drawCardHtml).join('')
     : '<div style="text-align:center;color:#6a5a3a;padding:40px;font-family:Cinzel,serif;font-size:16px;letter-spacing:.2em">NESSUNA VINCITA REGISTRATA</div>';
@@ -453,18 +489,19 @@ function renderStats() {
   const tot=draws.length;
   let ambos=0,ternos=0,quaterne=0;
 
+  const cur=currentSet();
   const freq={};
-  for(const n of OUR) freq[n]=0;
+  for(const n of cur) freq[n]=0;
 
   for(const d of draws) {
-    const w=d.wins||calcWins(d.numbers);
+    const w=winsFor(d);
     if(w[2]>0) ambos++;
     if(w[3]>0) ternos++;
     if(w[4]>0) quaterne++;
-    for(const n of d.numbers) if(OUR.includes(n)) freq[n]++;
+    for(const n of d.numbers) if(cur.includes(n)) freq[n]++;
   }
 
-  const freqSorted=OUR.map(n=>([n,freq[n]])).sort((a,b)=>b[1]-a[1]);
+  const freqSorted=cur.map(n=>([n,freq[n]])).sort((a,b)=>b[1]-a[1]);
   const maxFreq=Math.max(...freqSorted.map(x=>x[1]),1);
 
   const html=`
@@ -475,7 +512,7 @@ function renderStats() {
     <div class="stat-box"><div class="stat-num" style="color:#ff8c00">${quaterne}</div><div class="stat-label">QUATERNE</div></div>
   </div>
   <div class="card">
-    <div class="card-title">✦ FREQUENZA NUMERI ✦</div>
+    <div class="card-title">✦ FREQUENZA NUMERI IN GIOCO ✦</div>
     <div class="bar-chart">
       ${freqSorted.map(([n,f])=>`<div class="bar ${f===0?'dim':''}" style="height:${Math.round(f/maxFreq*100)}%" title="${n}: ${f}x"></div>`).join('')}
     </div>
@@ -513,28 +550,84 @@ function renderHot(){
     :`<div style="text-align:center;color:#6a5a3a;padding:20px">Nessuna estrazione nell'ultimo anno</div>`;
 }
 
-// ── I MIEI NUMERI: 8 caselle, salvataggio permanente sul dispositivo ──────
+// ── CAMBIA I NUMERI IN GIOCO (condiviso tra tutti, storia mai cancellata) ─
 function renderMyNums(){
-  let saved=[];try{saved=JSON.parse(localStorage.getItem('my_nums')||'[]');}catch{}
+  const set=currentSet();
+  const custom=set.join(',')!==OUR.join(',');
+  document.getElementById('playStatus').innerHTML=custom
+    ? '✏️ In gioco ora: numeri personalizzati'
+    : '⭐ In gioco ora: i numeri fortunati originali';
   document.getElementById('myNums').innerHTML=Array.from({length:8},(_,i)=>
-    `<input class="my-cell" type="number" inputmode="numeric" min="1" max="90" value="${saved[i]||''}">`).join('');
+    `<input class="my-cell" type="number" inputmode="numeric" min="1" max="90" value="${set[i]||''}">`).join('');
+  renderPlayedHistory();
 }
-function saveMyNums(){
-  const vals=[...document.querySelectorAll('#myNums .my-cell')].map(el=>{const v=parseInt(el.value);return(v>=1&&v<=90)?v:'';});
-  localStorage.setItem('my_nums',JSON.stringify(vals));
-  alert('✅ Numeri salvati! Li ritroverai a ogni riavvio.');
+
+async function saveMyNums(){
+  const vals=[...document.querySelectorAll('#myNums .my-cell')].map(el=>parseInt(el.value)).filter(v=>v>=1&&v<=90);
+  const uniq=[...new Set(vals)].sort((a,b)=>a-b);
+  if(uniq.length!==8){alert('⚠️ Servono 8 numeri validi (da 1 a 90), tutti diversi tra loro.');return;}
+  if(uniq.join(',')===currentSet().join(',')){alert('Questi sono già i numeri in gioco.');return;}
+  if(!confirm('Da adesso giochiamo QUESTI numeri:\n\n'+uniq.join(' · ')+'\n\nLe estrazioni già fatte restano valutate con i numeri di allora. Confermi?'))return;
+  playedHistory=[...playedHistory,{from:new Date().toISOString(),numbers:uniq}];
+  await saveBin({played:playedHistory});
+  renderAll();renderMyNums();
+  alert('✅ Fatto! Da ora l\'app controlla: '+uniq.join(' · '));
 }
-function clearMyNums(){
-  if(!confirm('Cancellare i numeri salvati?'))return;
-  localStorage.removeItem('my_nums');
-  renderMyNums();
+
+async function clearMyNums(){
+  if(currentSet().join(',')===OUR.join(',')){alert('Stiamo già giocando i numeri fortunati originali.');renderMyNums();return;}
+  if(!confirm('Tornare ai numeri fortunati originali?\n\n'+OUR.join(' · ')))return;
+  playedHistory=[...playedHistory,{from:new Date().toISOString(),numbers:[...OUR]}];
+  await saveBin({played:playedHistory});
+  renderAll();renderMyNums();
+  alert('✅ Si torna agli originali: '+OUR.join(' · '));
+}
+
+function renderPlayedHistory(){
+  const el=document.getElementById('playedHistoryList');
+  if(!el)return;
+  const fmtD=s=>new Date(s).toLocaleDateString('it-IT');
+  el.innerHTML=playedHistory.map((p,i)=>{
+    const last=i===playedHistory.length-1;
+    const from=i===0?'Dall\'inizio':'Dal '+fmtD(p.from);
+    const to=last?'· IN GIOCO ORA':'· fino al '+fmtD(playedHistory[i+1].from);
+    return `<div class="era ${last?'era-active':''}">
+      <div class="era-dates">${from} ${to}</div>
+      <div class="era-nums">${p.numbers.map(n=>`<span class="era-ball">${n}</span>`).join('')}</div>
+    </div>`;
+  }).reverse().join('');
 }
 
 function selType(t){fcType=t;document.getElementById('btnWin').className='fc-type-btn'+(t==='win'?' sel-win':'');document.getElementById('btnExp').className='fc-type-btn'+(t==='exp'?' sel-exp':'');}
 function selEditType(t){editType=t;document.getElementById('editBtnWin').className='fc-type-btn'+(t==='win'?' sel-win':'');document.getElementById('editBtnExp').className='fc-type-btn'+(t==='exp'?' sel-exp':'');}
 
-async function loadEntries(){try{const r=await fetch(BIN_URL+'/latest',{headers:BIN_HDR});const j=await r.json();return j.record?.entries||[];}catch(e){try{return JSON.parse(localStorage.getItem('fc_entries')||'[]');}catch{return[];}}}
-async function saveEntries(e){try{await fetch(BIN_URL,{method:'PUT',headers:BIN_HDR,body:JSON.stringify({entries:e})});}catch{localStorage.setItem('fc_entries',JSON.stringify(e));}}
+// ── ARCHIVIO CONDIVISO (JSONbin): fondocassa + storia dei numeri giocati ──
+let binCache=null;
+async function loadBin(){
+  try{
+    const r=await fetch(BIN_URL+'/latest',{headers:BIN_HDR});
+    const j=await r.json();
+    if(j.record)binCache=j.record;
+  }catch(e){}
+  if(!binCache){try{binCache=JSON.parse(localStorage.getItem('bin_cache')||'{}');}catch{binCache={};}}
+  if(!Array.isArray(binCache.entries))binCache.entries=[];
+  if(Array.isArray(binCache.played)&&binCache.played.length)playedHistory=binCache.played;
+  localStorage.setItem('bin_cache',JSON.stringify(binCache));
+  // Se un altro dei 4 ha cambiato i numeri, ridisegna tutto
+  const sig=JSON.stringify(playedHistory);
+  if(window._playedSig && sig!==window._playedSig){window._playedSig=sig;renderAll();renderMyNums();}
+  else window._playedSig=sig;
+  return binCache;
+}
+async function saveBin(patch){
+  const rec={...(binCache||{}),...patch};
+  binCache=rec;
+  if(patch.played)window._playedSig=JSON.stringify(patch.played);
+  localStorage.setItem('bin_cache',JSON.stringify(rec));
+  try{await fetch(BIN_URL,{method:'PUT',headers:BIN_HDR,body:JSON.stringify(rec)});}catch(e){}
+}
+async function loadEntries(){return (await loadBin()).entries;}
+async function saveEntries(e){await saveBin({entries:e});}
 
 async function renderFc(){
   const entries=await loadEntries();
@@ -619,8 +712,7 @@ function showTab(t){
   if(t==='history')renderHistory(allDraws);
 }
 
-renderMyNums();
-loadData();
+(async()=>{ await loadBin(); renderMyNums(); loadData(); })();
 
 // ── AUTO-REFRESH ────────────────────────────────────────────────────────
 // 1. Ricarica quando l'app torna in primo piano (riapertura da home screen)
