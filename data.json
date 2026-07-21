@@ -1,6 +1,19 @@
 {
-  "updated": "2026-07-18T20:03:15Z",
+  "updated": "2026-07-21T20:18:35Z",
   "draws": [
+    {
+      "date": "Martedì 21 Luglio 2026",
+      "numbers": [
+        13,
+        14,
+        15,
+        29,
+        38,
+        63
+      ],
+      "jolly": 24,
+      "superstar": 49
+    },
     {
       "date": "Sabato 18 Luglio 2026",
       "numbers": [
