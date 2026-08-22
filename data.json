@@ -1,6 +1,19 @@
 {
-  "updated": "2026-08-21T19:25:07Z",
+  "updated": "2026-08-22T19:21:23Z",
   "draws": [
+    {
+      "date": "Sabato 22 Agosto 2026",
+      "numbers": [
+        2,
+        16,
+        23,
+        31,
+        72,
+        85
+      ],
+      "jolly": 82,
+      "superstar": 14
+    },
     {
       "date": "Venerdì 21 Agosto 2026",
       "numbers": [
