@@ -1,6 +1,19 @@
 {
-  "updated": "2026-09-12T21:13:54Z",
+  "updated": "2026-09-15T21:55:24Z",
   "draws": [
+    {
+      "date": "Martedì 15 Settembre 2026",
+      "numbers": [
+        3,
+        12,
+        18,
+        32,
+        47,
+        54
+      ],
+      "jolly": 69,
+      "superstar": 28
+    },
     {
       "date": "Sabato 12 Settembre 2026",
       "numbers": [
