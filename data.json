@@ -1,6 +1,19 @@
 {
-  "updated": "2026-09-25T21:59:01Z",
+  "updated": "2026-09-26T21:51:19Z",
   "draws": [
+    {
+      "date": "Sabato 26 Settembre 2026",
+      "numbers": [
+        52,
+        54,
+        55,
+        64,
+        68,
+        78
+      ],
+      "jolly": 31,
+      "superstar": 6
+    },
     {
       "date": "Venerdì 25 Settembre 2026",
       "numbers": [
