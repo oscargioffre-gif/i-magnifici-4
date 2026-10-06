@@ -1,6 +1,19 @@
 {
-  "updated": "2026-10-03T21:59:03Z",
+  "updated": "2026-10-06T22:53:50Z",
   "draws": [
+    {
+      "date": "Martedì 6 Ottobre 2026",
+      "numbers": [
+        22,
+        32,
+        34,
+        70,
+        74,
+        77
+      ],
+      "jolly": 30,
+      "superstar": 14
+    },
     {
       "date": "Sabato 3 Ottobre 2026",
       "numbers": [
